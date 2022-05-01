@@ -1,0 +1,29 @@
+server:
+  port: 8088
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/fast_generator?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+      username: fast
+      password: 123456
+
+
+# 需要指定对应的模板
+fast:
+  template: fast-boot
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  typeAliasesPackage: net.maku.generator.entity
+  global-config:
+    db-config:
+      id-type: AUTO
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true

@@ -1,0 +1,1 @@
+type ComponentSize = any
