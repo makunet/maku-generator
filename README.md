@@ -12,6 +12,11 @@
 - Eclipse、IDEA启动GeneratorApplication.java，则可启动项目
 - 项目访问路径：http://localhost:8088
 
+
+## 支持
+如果觉得框架还不错，或者已经在使用了，希望你可以去 [Gitee](https://gitee.com/makunet/fast-generator) 帮作者点个 ⭐ Star，这将是对作者极大的鼓励与支持。
+
+
 ## 效果图
 ![输入图片说明](fast-generator-ui/public/images/1.png)
 
