@@ -88,7 +88,7 @@ const emit = defineEmits(['refreshDataList'])
 
 const visible = ref(false)
 const dataFormRef = ref()
-const baseClassList = ref([])
+const baseClassList = ref<any[]>([])
 const dataForm = reactive({
 	id: '',
 	baseclassId: '',
