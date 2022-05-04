@@ -21,7 +21,7 @@
 				</el-col>
 				<el-col :span="12">
 					<el-form-item prop="baseclassId" label="基类">
-						<el-select v-model="dataForm.baseclassId" placeholder="基类" class="w-percent-100" clearable>
+						<el-select v-model="dataForm.baseclassId" placeholder="基类" style="width: 100%" clearable>
 							<el-option v-for="item in baseClassList" :key="item.id" :label="item.code" :value="item.id"></el-option>
 						</el-select>
 					</el-form-item>
