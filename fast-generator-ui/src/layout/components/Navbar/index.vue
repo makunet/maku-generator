@@ -7,10 +7,10 @@
 		<div class="navbar-right">
 			<Lang />
 			<ComponentSize />
-			<a href="https://github.com" target="_blank">
+			<a href="https://gitee.com/makunet/fast-generator" target="_blank">
 				<svg-icon icon="icon-github-fill"></svg-icon>
 			</a>
-			<a href="https://baidu.com" target="_blank">
+			<a href="https://gitee.com/makunet" target="_blank">
 				<svg-icon icon="icon-earth"></svg-icon>
 			</a>
 			<Fullscreen />

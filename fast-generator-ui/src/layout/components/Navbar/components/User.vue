@@ -3,13 +3,7 @@
 		<div class="avatar-wrapper">
 			<el-avatar shape="circle" :size="25" src="/favicon.ico"></el-avatar>
 			<span>admin</span>
-			<el-icon class="el-icon--right"><ArrowDown /></el-icon>
 		</div>
-		<template #dropdown>
-			<el-dropdown-menu class="user-dropdown">
-				<el-dropdown-item> <a href="#">MAKU</a> </el-dropdown-item>
-			</el-dropdown-menu>
-		</template>
 	</el-dropdown>
 </template>
 
