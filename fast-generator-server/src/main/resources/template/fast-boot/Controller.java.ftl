@@ -1,31 +1,20 @@
-package ${package}.modules.${moduleName}.controller<#if subModuleName??>.${subModuleName}</#if>;
+package ${package}<#if moduleName??>.${moduleName}</#if>.controller<#if subModuleName??>.${subModuleName}</#if>;
 
-import ${package}.common.annotation.LogOperation;
-import ${package}.common.constant.Constant;
-import ${package}.common.page.PageData;
-import ${package}.common.utils.ExcelUtils;
-import ${package}.common.utils.Result;
-import ${package}.common.validator.AssertUtils;
-import ${package}.common.validator.ValidatorUtils;
-import ${package}.common.validator.group.AddGroup;
-import ${package}.common.validator.group.DefaultGroup;
-import ${package}.common.validator.group.UpdateGroup;
-import ${package}.modules.${moduleName}.dto<#if subModuleName??>.${subModuleName}</#if>.${ClassName}DTO;
-import ${package}.modules.${moduleName}.excel<#if subModuleName??>.${subModuleName}</#if>.${ClassName}Excel;
-import ${package}.modules.${moduleName}.service<#if subModuleName??>.${subModuleName}</#if>.${ClassName}Service;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
+import ${package}.framework.common.page.PageResult;
+import ${package}.framework.common.utils.Result;
+import ${package}<#if moduleName??>.${moduleName}</#if>.convert<#if subModuleName??>.${subModuleName}</#if>.${ClassName}Convert;
+import ${package}<#if moduleName??>.${moduleName}</#if>.entity<#if subModuleName??>.${subModuleName}</#if>.${ClassName}Entity;
+import ${package}<#if moduleName??>.${moduleName}</#if>.service<#if subModuleName??>.${subModuleName}</#if>.${ClassName}Service;
+import ${package}<#if moduleName??>.${moduleName}</#if>.query<#if subModuleName??>.${subModuleName}</#if>.${ClassName}Query;
+import ${package}<#if moduleName??>.${moduleName}</#if>.vo<#if subModuleName??>.${subModuleName}</#if>.${ClassName}VO;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
-
 
 /**
 * ${tableComment}
@@ -34,83 +23,54 @@ import java.util.Map;
 * @since ${version} ${date}
 */
 @RestController
-@RequestMapping("${moduleName}/${classname}")
-@Api(tags="${tableComment}")
+@RequestMapping("<#if moduleName??>${moduleName}/</#if>${classname}")
+@Tag(name="${tableComment}")
+@AllArgsConstructor
 public class ${ClassName}Controller {
-    @Autowired
-    private ${ClassName}Service ${className}Service;
+    private final ${ClassName}Service ${className}Service;
 
     @GetMapping("page")
-    @ApiOperation("分页")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = Constant.PAGE, value = "当前页码，从1开始", paramType = "query", required = true, dataType="int") ,
-        @ApiImplicitParam(name = Constant.LIMIT, value = "每页显示记录数", paramType = "query",required = true, dataType="int") ,
-        @ApiImplicitParam(name = Constant.ORDER_FIELD, value = "排序字段", paramType = "query", dataType="String") ,
-        @ApiImplicitParam(name = Constant.ORDER, value = "排序方式，可选值(asc、desc)", paramType = "query", dataType="String")
-    })
-    @RequiresPermissions("${moduleName}:${classname}:page")
-    public Result<PageData<${ClassName}DTO>> page(@ApiIgnore @RequestParam Map<String, Object> params){
-        PageData<${ClassName}DTO> page = ${className}Service.page(params);
+    @Operation(summary = "分页")
+    @PreAuthorize("hasAuthority('<#if moduleName??>${moduleName}:</#if>${classname}:page')")
+    public Result<PageResult<${ClassName}VO>> page(@Valid ${ClassName}Query query){
+        PageResult<${ClassName}VO> page = ${className}Service.page(query);
 
-        return new Result<PageData<${ClassName}DTO>>().ok(page);
+        return Result.ok(page);
     }
 
     @GetMapping("{id}")
-    @ApiOperation("信息")
-    @RequiresPermissions("${moduleName}:${classname}:info")
-    public Result<${ClassName}DTO> get(@PathVariable("id") Long id){
-        ${ClassName}DTO data = ${className}Service.get(id);
+    @Operation(summary = "信息")
+    @PreAuthorize("hasAuthority('<#if moduleName??>${moduleName}:</#if>${classname}:info')")
+    public Result<${ClassName}VO> get(@PathVariable("id") Long id){
+        ${ClassName}Entity entity = ${className}Service.getById(id);
 
-        return new Result<${ClassName}DTO>().ok(data);
+        return Result.ok(${ClassName}Convert.INSTANCE.convert(entity));
     }
 
     @PostMapping
-    @ApiOperation("保存")
-    @LogOperation("保存")
-    @RequiresPermissions("${moduleName}:${classname}:save")
-    public Result save(@RequestBody ${ClassName}DTO dto){
-        //效验数据
-        ValidatorUtils.validateEntity(dto, AddGroup.class, DefaultGroup.class);
+    @Operation(summary = "保存")
+    @PreAuthorize("hasAuthority('<#if moduleName??>${moduleName}:</#if>${classname}:save')")
+    public Result<String> save(@RequestBody ${ClassName}VO vo){
+        ${className}Service.save(vo);
 
-        ${className}Service.save(dto);
-
-        return new Result();
+        return Result.ok();
     }
 
     @PutMapping
-    @ApiOperation("修改")
-    @LogOperation("修改")
-    @RequiresPermissions("${moduleName}:${classname}:update")
-    public Result update(@RequestBody ${ClassName}DTO dto){
-        //效验数据
-        ValidatorUtils.validateEntity(dto, UpdateGroup.class, DefaultGroup.class);
+    @Operation(summary = "修改")
+    @PreAuthorize("hasAuthority('<#if moduleName??>${moduleName}:</#if>${classname}:update')")
+    public Result<String> update(@RequestBody @Valid ${ClassName}VO vo){
+        ${className}Service.update(vo);
 
-        ${className}Service.update(dto);
-
-        return new Result();
+        return Result.ok();
     }
 
     @DeleteMapping
-    @ApiOperation("删除")
-    @LogOperation("删除")
-    @RequiresPermissions("${moduleName}:${classname}:delete")
-    public Result delete(@RequestBody Long[] ids){
-        //效验数据
-        AssertUtils.isArrayEmpty(ids, "id");
+    @Operation(summary = "删除")
+    @PreAuthorize("hasAuthority('<#if moduleName??>${moduleName}:</#if>${classname}:delete')")
+    public Result<String> delete(@RequestBody List<Long> idList){
+        ${className}Service.delete(idList);
 
-        ${className}Service.delete(ids);
-
-        return new Result();
+        return Result.ok();
     }
-
-    @GetMapping("export")
-    @ApiOperation("导出")
-    @LogOperation("导出")
-    @RequiresPermissions("${moduleName}:${classname}:export")
-    public void export(@ApiIgnore @RequestParam Map<String, Object> params, HttpServletResponse response) throws Exception {
-        List<${ClassName}DTO> list = ${className}Service.list(params);
-
-        ExcelUtils.exportExcelToTarget(response, null, "${tableComment}", list, ${ClassName}Excel.class);
-    }
-
 }
