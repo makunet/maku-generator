@@ -13,7 +13,7 @@ export const useImportTableSubmitApi = (dataForm: any) => {
 }
 
 export const useTableSubmitApi = (dataForm: any) => {
-	return service.post('/gen/table', dataForm)
+	return service.put('/gen/table', dataForm)
 }
 
 export const useGeneratorApi = (dataForm: any) => {

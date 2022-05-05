@@ -165,7 +165,12 @@ public class GeneratorServiceImpl implements GeneratorService {
         dataModel.put("package", tableInfo.getPackageName());
         dataModel.put("packagePath", tableInfo.getPackageName().replace(".", File.separator));
         dataModel.put("version", tableInfo.getVersion());
-        dataModel.put("moduleName", tableInfo.getModuleName());
+
+        String moduleName = tableInfo.getModuleName();
+        if(StringUtils.isBlank(moduleName)){
+            moduleName = null;
+        }
+        dataModel.put("moduleName", moduleName);
 
         String subModuleName = tableInfo.getSubModuleName();
         if(StringUtils.isBlank(subModuleName)){

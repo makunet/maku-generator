@@ -134,7 +134,6 @@ const dataRules = ref({
 	tableName: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
 	tableComment: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
 	className: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	moduleName: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
 	packageName: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
 	author: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
 	backendPath: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
