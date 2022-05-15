@@ -11,7 +11,7 @@
     "@element-plus/icons-vue": "^1.1.4",
     "@vueuse/core": "^8.2.6",
     "axios": "^0.26.1",
-    "element-plus": "^2.1.7",
+    "element-plus": "^2.2.0",
     "pinia": "^2.0.13",
     "qs": "^6.10.3",
     "sortablejs": "^1.15.0",
