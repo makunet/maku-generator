@@ -9,6 +9,7 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // 参考：https://cn.vitejs.dev/config/
 export default defineConfig({
+	base: './',
 	resolve: {
 		// 配置别名
 		alias: {

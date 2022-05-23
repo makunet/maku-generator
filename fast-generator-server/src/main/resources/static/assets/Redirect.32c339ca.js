@@ -1,0 +1,1 @@
+import{a as o,b3 as s,b5 as n,ao as c}from"./index.ff0725fc.js";const d=o({created(){const{params:e,query:a}=s(),{path:r}=e;n().replace({path:"/"+r,query:a}).catch(t=>{console.warn(t)})},render(){return c("div")}});export{d as default};
