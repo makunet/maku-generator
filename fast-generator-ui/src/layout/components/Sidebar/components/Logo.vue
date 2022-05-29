@@ -1,6 +1,6 @@
 <template>
 	<div v-if="store.appStore.sidebarOpened" class="sidebar-logo">
-		<el-avatar src="/favicon.ico"></el-avatar>
+		<el-avatar src="./favicon.ico"></el-avatar>
 		<span class="logo-title"> {{ $t('app.logoText') }}</span>
 	</div>
 	<div v-else class="sidebar-logo sidebar-logo-expend">
