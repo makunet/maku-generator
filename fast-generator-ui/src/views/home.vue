@@ -15,12 +15,12 @@
 			>
 		</p>
 		<p>
-			Github地址：<el-link href="https://github.com/makunet/fast-generator" :underline="false" type="primary" target="_blank">
+			Github仓库：<el-link href="https://github.com/makunet/fast-generator" :underline="false" type="primary" target="_blank">
 				https://github.com/makunet/fast-generator</el-link
 			>
 		</p>
 		<p>
-			Gitee地址：<el-link href="https://gitee.com/makunet/fast-generator" :underline="false" type="primary" target="_blank">
+			Gitee仓库：<el-link href="https://gitee.com/makunet/fast-generator" :underline="false" type="primary" target="_blank">
 				https://gitee.com/makunet/fast-generator</el-link
 			>
 		</p>
