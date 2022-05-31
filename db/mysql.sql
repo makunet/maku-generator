@@ -104,3 +104,37 @@ CREATE TABLE gen_test_student (
     update_time datetime COMMENT '更新时间',
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='测试2';
+
+
+
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (1, 'datetime', 'Date', 'java.util.Date', now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (2, 'date', 'Date', 'java.util.Date', now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (3, 'tinyint', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (4, 'smallint', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (5, 'mediumint', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (6, 'int', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (7, 'integer', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (8, 'bigint', 'Long', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (9, 'float', 'Float', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (10, 'double', 'Double', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (11, 'decimal', 'BigDecimal', 'java.math.BigDecimal', now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (12, 'bit', 'Boolean', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (13, 'char', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (14, 'varchar', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (15, 'tinytext', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (16, 'text', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (17, 'mediumtext', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (18, 'longtext', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (19, 'timestamp', 'Date', 'java.util.Date', now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (20, 'NUMBER', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (21, 'BINARY_INTEGER', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (22, 'BINARY_FLOAT', 'Float', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (23, 'BINARY_DOUBLE', 'Double', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (24, 'VARCHAR2', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (25, 'NVARCHAR', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (26, 'NVARCHAR2', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (27, 'CLOB', 'String', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (28, 'int8', 'Long', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (29, 'int4', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (30, 'int2', 'Integer', NULL, now());
+INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (31, 'numeric', 'BigDecimal', 'java.math.BigDecimal', now());
