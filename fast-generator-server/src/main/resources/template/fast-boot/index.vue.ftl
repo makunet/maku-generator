@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<el-card>
 		<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
 		<#list columnList as column>
 		  <#if column.query>
@@ -81,7 +81,7 @@
 
 		<!-- 弹窗, 新增 / 修改 -->
 		<add-or-update ref="addOrUpdateRef" @refreshDataList="getDataList"></add-or-update>
-	</div>
+	</el-card>
 </template>
 
 <script setup lang="ts" name="<#if moduleName??>${moduleName}</#if>${ClassName}Index">
