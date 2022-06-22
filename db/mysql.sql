@@ -138,3 +138,5 @@ INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_tim
 INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (29, 'int4', 'Integer', NULL, now());
 INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (30, 'int2', 'Integer', NULL, now());
 INSERT INTO gen_field_type (id, column_type, attr_type, package_name, create_time) VALUES (31, 'numeric', 'BigDecimal', 'java.math.BigDecimal', now());
+
+INSERT INTO gen_base_class (id, package_name, code, fields, remark, create_time) VALUES (3, 'net.maku.framework.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', now());
