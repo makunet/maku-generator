@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.*;
 import ${i!};
 </#list>
 <#if baseClassEntity??>
-import ${baseClassEntity.packageName};
+import ${baseClassEntity.packageName}.${baseClassEntity.code};
 </#if>
 
 /**
