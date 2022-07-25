@@ -8,10 +8,7 @@ import net.maku.generator.config.DataSourceInfo;
 import net.maku.generator.config.template.GeneratorConfig;
 import net.maku.generator.config.template.GeneratorInfo;
 import net.maku.generator.config.template.TemplateInfo;
-import net.maku.generator.entity.BaseClassEntity;
-import net.maku.generator.entity.FieldTypeEntity;
-import net.maku.generator.entity.TableFieldEntity;
-import net.maku.generator.entity.TableInfoEntity;
+import net.maku.generator.entity.*;
 import net.maku.generator.service.*;
 import net.maku.generator.utils.DbUtils;
 import net.maku.generator.utils.GenUtils;
@@ -72,7 +69,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         if(table != null){
             throw new FastException(tableInfo.getTableName() + "数据表已存在");
         }
-
+        System.out.println("tableInfo.getTableName() = " + tableInfo.getTableName());
         table = DbUtils.getTablesInfo(info, tableInfo.getTableName());
 
         //代码生成器信息
@@ -159,8 +156,13 @@ public class GeneratorServiceImpl implements GeneratorService {
         //保存新列信息
         tableFieldService.saveBatch(tableInfo.getFields());
 
+        //获取数据源（MySql, SqlServer, Oracle）
+        DataSourceEntity dataSourceEntity = datasourceService.getById(tableInfo.getDatasourceId());
+
         //数据模型
         Map<String, Object> dataModel = new HashMap<>();
+        //数据库信息
+        dataModel.put("dbType", dataSourceEntity.getDbType());
         //项目信息
         dataModel.put("package", tableInfo.getPackageName());
         dataModel.put("packagePath", tableInfo.getPackageName().replace(".", File.separator));

@@ -1,6 +1,6 @@
 package ${package}<#if moduleName??>.${moduleName}</#if>.service<#if subModuleName??>.${subModuleName}</#if>.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.AllArgsConstructor;
 import ${package}.framework.common.page.PageResult;
@@ -33,8 +33,8 @@ public class ${ClassName}ServiceImpl extends BaseServiceImpl<${ClassName}Dao, ${
         return new PageResult<>(${ClassName}Convert.INSTANCE.convertList(page.getRecords()), page.getTotal());
     }
 
-    private QueryWrapper<${ClassName}Entity> getWrapper(${ClassName}Query query){
-        QueryWrapper<${ClassName}Entity> wrapper = new QueryWrapper<>();
+    private LambdaQueryWrapper<${ClassName}Entity> getWrapper(${ClassName}Query query){
+        LambdaQueryWrapper<${ClassName}Entity> wrapper = Wrappers.<${ClassName}Entity>lambdaQuery();
 
         return wrapper;
     }

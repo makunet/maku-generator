@@ -6,6 +6,7 @@ package net.maku.generator.utils;
  * @author 阿沐 babamu@126.com
  */
 public enum DbType {
+	SqlServer("com.microsoft.sqlserver.jdbc.SQLServerDriver"),
 	MySQL("com.mysql.cj.jdbc.Driver"),
 	Oracle("oracle.jdbc.driver.OracleDriver"),
 	PostgreSQL("org.postgresql.Driver");

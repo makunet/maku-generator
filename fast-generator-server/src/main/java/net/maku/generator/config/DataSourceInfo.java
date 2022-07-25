@@ -1,10 +1,7 @@
 package net.maku.generator.config;
 
 import lombok.Data;
-import net.maku.generator.config.query.AbstractQuery;
-import net.maku.generator.config.query.MySqlQuery;
-import net.maku.generator.config.query.OracleQuery;
-import net.maku.generator.config.query.PostgreSqlQuery;
+import net.maku.generator.config.query.*;
 import net.maku.generator.entity.DataSourceEntity;
 import net.maku.generator.utils.DbType;
 import net.maku.generator.utils.DbUtils;
@@ -57,6 +54,8 @@ public class DataSourceInfo {
             this.dbQuery = new OracleQuery();
         }else if(dbType == DbType.PostgreSQL) {
             this.dbQuery = new PostgreSqlQuery();
+        }else if(dbType == DbType.SqlServer) {
+            this.dbQuery = new SqlServerQuery();
         }
 
         try {
@@ -76,6 +75,8 @@ public class DataSourceInfo {
             this.dbQuery = new OracleQuery();
         }else if(dbType == DbType.PostgreSQL) {
             this.dbQuery = new PostgreSqlQuery();
+        }else if(dbType == DbType.SqlServer) {
+            this.dbQuery = new SqlServerQuery();
         }
 
         this.connection = connection;
