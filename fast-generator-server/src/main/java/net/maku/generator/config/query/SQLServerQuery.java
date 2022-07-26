@@ -4,15 +4,15 @@ import net.maku.generator.utils.DbType;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * MySQL查询
+ * SQLServer查询
  *
  * @author 阿沐 babamu@126.com
  */
-public class SqlServerQuery implements AbstractQuery {
+public class SQLServerQuery implements AbstractQuery {
 
     @Override
     public DbType dbType() {
-        return DbType.SqlServer;
+        return DbType.SQLServer;
     }
 
     @Override

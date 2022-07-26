@@ -54,8 +54,8 @@ public class DataSourceInfo {
             this.dbQuery = new OracleQuery();
         }else if(dbType == DbType.PostgreSQL) {
             this.dbQuery = new PostgreSqlQuery();
-        }else if(dbType == DbType.SqlServer) {
-            this.dbQuery = new SqlServerQuery();
+        }else if(dbType == DbType.SQLServer) {
+            this.dbQuery = new SQLServerQuery();
         }
 
         try {
@@ -75,8 +75,8 @@ public class DataSourceInfo {
             this.dbQuery = new OracleQuery();
         }else if(dbType == DbType.PostgreSQL) {
             this.dbQuery = new PostgreSqlQuery();
-        }else if(dbType == DbType.SqlServer) {
-            this.dbQuery = new SqlServerQuery();
+        }else if(dbType == DbType.SQLServer) {
+            this.dbQuery = new SQLServerQuery();
         }
 
         this.connection = connection;

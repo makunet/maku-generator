@@ -156,12 +156,12 @@ public class GeneratorServiceImpl implements GeneratorService {
         //保存新列信息
         tableFieldService.saveBatch(tableInfo.getFields());
 
-        //获取数据源（MySql, SqlServer, Oracle）
+        //获取数据源
         DataSourceEntity dataSourceEntity = datasourceService.getById(tableInfo.getDatasourceId());
 
         //数据模型
         Map<String, Object> dataModel = new HashMap<>();
-        //数据库信息
+        //数据库类型
         dataModel.put("dbType", dataSourceEntity.getDbType());
         //项目信息
         dataModel.put("package", tableInfo.getPackageName());

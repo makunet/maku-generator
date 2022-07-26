@@ -35,7 +35,7 @@ public class ${ClassName}ServiceImpl extends BaseServiceImpl<${ClassName}Dao, ${
     }
 
     private LambdaQueryWrapper<${ClassName}Entity> getWrapper(${ClassName}Query query){
-        LambdaQueryWrapper<${ClassName}Entity> wrapper = Wrappers.<${ClassName}Entity>lambdaQuery();
+        LambdaQueryWrapper<${ClassName}Entity> wrapper = Wrappers.lambdaQuery();
 
         return wrapper;
     }

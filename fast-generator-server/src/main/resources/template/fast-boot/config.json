@@ -47,8 +47,8 @@
       "generatorPath": "${backendPath}/src/main/resources/mapper/${moduleName!}/${ClassName}Dao.xml"
     },
     {
-      "templateName": "mysql.sql.ftl",
-      "generatorPath": "${backendPath}/mysql.sql"
+      "templateName": "menu.sql.ftl",
+      "generatorPath": "${backendPath}/menu.sql"
     },
     {
       "templateName": "api.ts.ftl",

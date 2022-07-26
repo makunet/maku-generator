@@ -6,7 +6,7 @@
 			</el-form-item>
 			<el-form-item prop="dbType">
 				<el-select v-model="state.queryForm.dbType" clearable placeholder="数据库类型">
-					<el-option value="SqlServer" label="SqlServer"></el-option>
+					<el-option value="SQLServer" label="SQLServer"></el-option>
 					<el-option value="MySQL" label="MySQL"></el-option>
 					<el-option value="Oracle" label="Oracle"></el-option>
 					<el-option value="PostgreSQL" label="PostgreSQL"></el-option>
