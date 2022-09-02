@@ -23,11 +23,6 @@ public class DbUtils {
 
     /**
      * 获得数据库连接
-     *
-     * @param info
-     * @return
-     * @throws ClassNotFoundException
-     * @throws SQLException
      */
     public static Connection getConnection(DataSourceInfo info) throws ClassNotFoundException, SQLException {
         DriverManager.setLoginTimeout(CONNECTION_TIMEOUTS_SECONDS);

@@ -14,14 +14,14 @@
 	</parent>
 
 	<properties>
-		<mybatisplus.version>3.5.1</mybatisplus.version>
-		<druid.version>1.2.9</druid.version>
+		<mybatisplus.version>3.5.2</mybatisplus.version>
+		<druid.version>1.2.11</druid.version>
 		<commons.lang.version>2.6</commons.lang.version>
 		<commons.io.version>2.11.0</commons.io.version>
 		<commons.configuration.version>1.10</commons.configuration.version>
 		<oracle.version>11.2.0.3</oracle.version>
 		<freemarker.version>2.3.31</freemarker.version>
-		<sqlserver.version>9.4.1.jre8</sqlserver.version>
+		<sqlserver.version>11.2.0.jre8</sqlserver.version>
 	</properties>
 
 	<dependencies>
