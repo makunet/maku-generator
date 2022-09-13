@@ -1,8 +1,8 @@
 package net.maku.generator.common.utils;
 
+import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class JsonUtils {
     }
 
     public static <T> T parseObject(String text, Class<T> clazz) {
-        if (StringUtils.isBlank(text)) {
+        if (StrUtil.isBlank(text)) {
             return null;
         }
         try {
@@ -43,7 +43,7 @@ public class JsonUtils {
     }
 
     public static <T> List<T> parseArray(String text, Class<T> clazz) {
-        if (StringUtils.isBlank(text)) {
+        if (StrUtil.isBlank(text)) {
             return new ArrayList<>();
         }
         try {

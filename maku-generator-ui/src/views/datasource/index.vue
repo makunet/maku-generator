@@ -2,14 +2,14 @@
 	<div>
 		<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
 			<el-form-item>
-				<el-input v-model="state.queryForm.connName" placeholder="连接名" clearable></el-input>
+				<el-input v-model="state.queryForm.connName" placeholder="连接名"></el-input>
 			</el-form-item>
 			<el-form-item prop="dbType">
 				<el-select v-model="state.queryForm.dbType" clearable placeholder="数据库类型">
-					<el-option value="SQLServer" label="SQLServer"></el-option>
 					<el-option value="MySQL" label="MySQL"></el-option>
 					<el-option value="Oracle" label="Oracle"></el-option>
 					<el-option value="PostgreSQL" label="PostgreSQL"></el-option>
+					<el-option value="SQLServer" label="SQLServer"></el-option>
 				</el-select>
 			</el-form-item>
 			<el-form-item>
@@ -26,14 +26,14 @@
 			<el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
 			<el-table-column prop="connName" label="连接名" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="dbType" label="数据库类型" header-align="center" align="center"></el-table-column>
-			<el-table-column prop="connUrl" label="数据库URL" header-align="center" align="center"></el-table-column>
+			<el-table-column prop="connUrl" label="数据库URL" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="username" label="用户名" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="password" label="密码" header-align="center" align="center"></el-table-column>
-			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
+			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="170">
 				<template #default="scope">
-					<el-button type="text" size="small" @click="datasourceHandle(scope.row.id)">连接测试</el-button>
-					<el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">编辑</el-button>
-					<el-button type="text" size="small" @click="deleteBatchHandle(scope.row.id)">删除</el-button>
+					<el-button type="primary" link @click="datasourceHandle(scope.row.id)">测试</el-button>
+					<el-button type="primary" link @click="addOrUpdateHandle(scope.row.id)">编辑</el-button>
+					<el-button type="primary" link @click="deleteBatchHandle(scope.row.id)">删除</el-button>
 				</template>
 			</el-table-column>
 		</el-table>

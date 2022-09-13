@@ -22,7 +22,7 @@ public class DataSourceEntity {
 	@TableId
 	private Long id;
     /**
-     * 数据库类型 MySQL、Oracle、PostgreSQL
+     * 数据库类型
      */
 	private String dbType;
     /**

@@ -9,7 +9,7 @@
 			<el-scrollbar>
 				<el-main class="layout-main">
 					<el-scrollbar class="layout-scrollbar">
-						<el-card class="box-card">
+						<el-card class="layout-card">
 							<router-view v-slot="{ Component, route }">
 								<keep-alive :include="[...store.tabsStore.cachedViews]">
 									<component :is="Component" :key="route.name" />

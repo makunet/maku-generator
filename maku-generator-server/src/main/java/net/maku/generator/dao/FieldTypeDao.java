@@ -17,7 +17,7 @@ public interface FieldTypeDao extends BaseMapper<FieldTypeEntity> {
     /**
      * 根据tableId，获取包列表
      */
-    Set<String> getPackageListByTableId(Long tableId);
+    Set<String> getPackageByTableId(Long tableId);
 
     /**
      * 获取全部字段类型

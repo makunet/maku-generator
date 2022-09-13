@@ -1,6 +1,6 @@
 {
   "name": "maku-generator-ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -11,14 +11,14 @@
     "@element-plus/icons-vue": "2.0.6",
     "@vueuse/core": "9.1.1",
     "axios": "0.27.2",
-    "element-plus": "2.2.14",
+    "element-plus": "2.2.16",
     "pinia": "2.0.16",
     "qs": "6.10.3",
     "sortablejs": "^1.15.0",
     "vue": "3.2.37",
     "vue-i18n": "9.1.9",
     "vue-router": "4.0.16",
-    "vxe-table": "^4.2.3",
+    "vxe-table": "^4.3.1",
     "xe-utils": "^3.5.4"
   },
   "devDependencies": {

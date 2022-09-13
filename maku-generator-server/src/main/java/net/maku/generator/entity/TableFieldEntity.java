@@ -9,7 +9,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 表字段信息
+ * 表字段
  *
  * @author 阿沐 babamu@126.com
  */
@@ -23,26 +23,21 @@ public class TableFieldEntity {
      */
     private Long tableId;
     /**
-     * 表名
+     * 字段名称
      */
-    private String tableName;
+    private String fieldName;
     /**
-     * 列名
+     * 排序
      */
-    private String columnName;
+    private Integer sort;
     /**
-     * 类型
+     * 字段类型
      */
-    private String columnType;
+    private String fieldType;
     /**
-     * 列说明
+     * 字段说明
      */
-    private String columnComment;
-    /**
-     * 列说明
-     */
-    @TableField(exist = false)
-    private String comment;
+    private String fieldComment;
     /**
      * 属性名
      */
@@ -56,45 +51,61 @@ public class TableFieldEntity {
      */
     private String packageName;
     /**
-     * 是否主键 0：否  1：是
+     * 自动填充
      */
-    private boolean isPk;
+    private String autoFill;
     /**
-     * 是否必填 0：否  1：是
+     * 主键 0：否  1：是
      */
-    private boolean isRequired;
+    private boolean primaryPk;
     /**
-     * 是否表单字段 0：否  1：是
+     * 基类字段 0：否  1：是
      */
-    private boolean isForm;
+    private boolean baseField;
     /**
-     * 是否列表字段 0：否  1：是
+     * 表单项 0：否  1：是
      */
-    private boolean isList;
+    private boolean formItem;
     /**
-     * 是否查询字段 0：否  1：是
+     * 表单必填 0：否  1：是
      */
-    private boolean isQuery;
-    /**
-     * 查询方式
-     */
-    private String queryType;
+    private boolean formRequired;
     /**
      * 表单类型
      */
     private String formType;
     /**
-     * 字典名称
+     * 表单字典类型
      */
-    private String dictName;
+    private String formDict;
     /**
-     * 效验方式
+     * 表单效验
      */
-    private String validatorType;
+    private String formValidator;
     /**
-     * 排序
+     * 列表项 0：否  1：是
      */
-    private Integer sort;
+    private boolean gridItem;
+    /**
+     * 列表排序 0：否  1：是
+     */
+    private boolean gridSort;
+    /**
+     * 查询项 0：否  1：是
+     */
+    private boolean queryItem;
+    /**
+     * 查询方式
+     */
+    private String queryType;
+    /**
+     * 查询表单类型
+     */
+    private String queryFormType;
+    /**
+     * 查询字典类型
+     */
+    private String queryDict;
     /**
      * 创建时间
      */

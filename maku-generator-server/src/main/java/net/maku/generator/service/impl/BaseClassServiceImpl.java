@@ -1,4 +1,3 @@
-
 package net.maku.generator.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -23,7 +22,7 @@ public class BaseClassServiceImpl extends BaseServiceImpl<BaseClassDao, BaseClas
     @Override
     public PageResult<BaseClassEntity> page(Query query) {
         IPage<BaseClassEntity> page = baseMapper.selectPage(
-            getPage(query), getWrapper(query)
+                getPage(query), getWrapper(query)
         );
 
         return new PageResult<>(page.getRecords(), page.getTotal());

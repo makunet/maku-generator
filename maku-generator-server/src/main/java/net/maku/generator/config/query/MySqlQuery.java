@@ -1,7 +1,7 @@
 package net.maku.generator.config.query;
 
-import net.maku.generator.utils.DbType;
-import org.apache.commons.lang.StringUtils;
+import cn.hutool.core.util.StrUtil;
+import net.maku.generator.config.DbType;
 
 /**
  * MySQL查询
@@ -16,12 +16,12 @@ public class MySqlQuery implements AbstractQuery {
     }
 
     @Override
-    public String tablesSql(String tableName) {
+    public String tableSql(String tableName) {
         StringBuilder sql = new StringBuilder();
         sql.append("select table_name, table_comment from information_schema.tables ");
         sql.append("where table_schema = (select database()) ");
-        //表名查询
-        if(StringUtils.isNotBlank(tableName)){
+        // 表名查询
+        if (StrUtil.isNotBlank(tableName)) {
             sql.append("and table_name = '").append(tableName).append("' ");
         }
         sql.append("order by table_name asc");

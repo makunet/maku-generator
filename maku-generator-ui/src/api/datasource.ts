@@ -19,3 +19,7 @@ export const useDataSourceSubmitApi = (dataForm: any) => {
 		return service.post('/gen/datasource', dataForm)
 	}
 }
+
+export const useDataSourceTableListApi = (id: string) => {
+	return service.get('/gen/datasource/table/list/' + id)
+}

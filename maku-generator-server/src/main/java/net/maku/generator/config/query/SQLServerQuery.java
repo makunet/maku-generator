@@ -1,7 +1,7 @@
 package net.maku.generator.config.query;
 
-import net.maku.generator.utils.DbType;
-import org.apache.commons.lang.StringUtils;
+import cn.hutool.core.util.StrUtil;
+import net.maku.generator.config.DbType;
 
 /**
  * SQLServer查询
@@ -16,17 +16,17 @@ public class SQLServerQuery implements AbstractQuery {
     }
 
     @Override
-    public String tablesSql(String tableName) {
+    public String tableSql(String tableName) {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT DISTINCT d.name as table_name, f.value as table_comment FROM syscolumns a " +
                 "LEFT JOIN systypes b ON a.xusertype= b.xusertype " +
                 "INNER JOIN sysobjects d ON a.id= d.id  AND d.xtype= 'U' AND d.name<> 'dtproperties' " +
                 "LEFT JOIN syscomments e ON a.cdefault= e.id " +
-                "LEFT JOIN sys.extended_properties g ON a.id= G.major_id AND a.colid= g.minor_id " +
+                "LEFT JOIN sys.extended_properties g ON a.id= g.major_id AND a.colid= g.minor_id " +
                 "LEFT JOIN sys.extended_properties f ON d.id= f.major_id AND f.minor_id= 0 ");
         sql.append("where 1=1 ");
-        //表名查询
-        if(StringUtils.isNotBlank(tableName)){
+        // 表名查询
+        if (StrUtil.isNotBlank(tableName)) {
             sql.append("and d.name = '").append(tableName).append("' ");
         }
         sql.append("order by d.name asc");

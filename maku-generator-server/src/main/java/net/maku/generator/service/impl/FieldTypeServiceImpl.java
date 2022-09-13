@@ -1,5 +1,6 @@
 package net.maku.generator.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import net.maku.generator.common.page.PageResult;
 import net.maku.generator.common.query.Query;
@@ -13,6 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 /**
@@ -26,8 +28,8 @@ public class FieldTypeServiceImpl extends BaseServiceImpl<FieldTypeDao, FieldTyp
     @Override
     public PageResult<FieldTypeEntity> page(Query query) {
         IPage<FieldTypeEntity> page = baseMapper.selectPage(
-            getPage(query),
-            getWrapper(query)
+                getPage(query),
+                getWrapper(query)
         );
         return new PageResult<>(page.getRecords(), page.getTotal());
     }
@@ -36,15 +38,17 @@ public class FieldTypeServiceImpl extends BaseServiceImpl<FieldTypeDao, FieldTyp
     public Map<String, FieldTypeEntity> getMap() {
         List<FieldTypeEntity> list = baseMapper.selectList(null);
         Map<String, FieldTypeEntity> map = new LinkedHashMap<>(list.size());
-        for(FieldTypeEntity entity : list){
+        for (FieldTypeEntity entity : list) {
             map.put(entity.getColumnType().toLowerCase(), entity);
         }
         return map;
     }
 
     @Override
-    public Set<String> getPackageListByTableId(Long tableId) {
-        return baseMapper.getPackageListByTableId(tableId);
+    public Set<String> getPackageByTableId(Long tableId) {
+        Set<String> importList = baseMapper.getPackageByTableId(tableId);
+
+        return importList.stream().filter(StrUtil::isNotBlank).collect(Collectors.toSet());
     }
 
     @Override

@@ -1,10 +1,6 @@
 package net.maku.generator.service;
 
-import net.maku.generator.config.DataSourceInfo;
-import net.maku.generator.entity.TableFieldEntity;
-import net.maku.generator.entity.TableInfoEntity;
-
-import java.util.List;
+import java.util.zip.ZipOutputStream;
 
 /**
  * 代码生成
@@ -13,11 +9,7 @@ import java.util.List;
  */
 public interface GeneratorService {
 
-    DataSourceInfo getDataSourceInfo(Long datasourceId);
+    void downloadCode(Long tableId, ZipOutputStream zip);
 
-    void datasourceTable(TableInfoEntity tableInfo);
-
-    void updateTableField(Long tableId, List<TableFieldEntity> tableFieldList);
-
-    void generatorCode(TableInfoEntity tableInfo) throws Exception;
+    void generatorCode(Long tableId);
 }

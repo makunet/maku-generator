@@ -20,8 +20,11 @@ public interface FieldTypeService extends BaseService<FieldTypeEntity> {
 
     /**
      * 根据tableId，获取包列表
+     *
+     * @param tableId 表ID
+     * @return 返回包列表
      */
-    Set<String> getPackageListByTableId(Long tableId);
+    Set<String> getPackageByTableId(Long tableId);
 
     Set<String> getList();
 }

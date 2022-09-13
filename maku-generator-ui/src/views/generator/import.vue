@@ -1,24 +1,17 @@
 <template>
-	<el-dialog v-model="visible" title="导入数据库表" :close-on-click-modal="false">
-		<el-form ref="dataFormRef" :model="dataForm" :rules="dataRules" label-width="120px">
+	<el-dialog v-model="visible" title="导入数据库表" :close-on-click-modal="false" draggable>
+		<el-form ref="dataFormRef" :model="dataForm">
 			<el-form-item label="数据源" prop="datasourceId">
-				<el-select v-model="dataForm.datasourceId" style="width: 100%" placeholder="请选择数据源" @change="getTableInfoList">
+				<el-select v-model="dataForm.datasourceId" style="width: 100%" placeholder="请选择数据源" @change="getTableList">
 					<el-option label="默认数据源" value="0"></el-option>
 					<el-option v-for="ds in dataForm.datasourceList" :key="ds.id" :label="ds.connName" :value="ds.id"> </el-option>
 				</el-select>
 			</el-form-item>
-			<el-form-item label="选择表" prop="tableInfo">
-				<el-select
-					v-model="dataForm.tableInfo"
-					value-key="tableName"
-					:disabled="!dataForm.showTableSelect"
-					style="width: 100%"
-					placeholder="请选择表名"
-				>
-					<el-option v-for="tableInfo in dataForm.tableInfoList" :key="tableInfo.tableName" :label="tableInfo.tableName" :value="tableInfo">
-					</el-option>
-				</el-select>
-			</el-form-item>
+			<el-table :data="dataForm.tableList" border style="width: 100%" :max-height="400" @selection-change="selectionChangeHandle">
+				<el-table-column type="selection" header-align="center" align="center" width="60"></el-table-column>
+				<el-table-column prop="tableName" label="表名" header-align="center" align="center"></el-table-column>
+				<el-table-column prop="tableComment" label="表说明" header-align="center" align="center"></el-table-column>
+			</el-table>
 		</el-form>
 		<template #footer>
 			<el-button @click="visible = false">取消</el-button>
@@ -31,7 +24,8 @@
 import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus/es'
 import { useDataSourceListApi } from '@/api/datasource'
-import { useImportTableSubmitApi, useTableInfoListApi } from '@/api/generator'
+import { useTableImportSubmitApi } from '@/api/table'
+import { useDataSourceTableListApi } from '@/api/datasource'
 
 const emit = defineEmits(['refreshDataList'])
 
@@ -40,14 +34,19 @@ const dataFormRef = ref()
 
 const dataForm = reactive({
 	id: '',
+	tableNameListSelections: [] as any,
 	datasourceId: '',
 	datasourceList: [] as any,
-	tableInfoList: [] as any,
-	tableInfo: {
+	tableList: [] as any,
+	table: {
 		tableName: ''
-	},
-	showTableSelect: false
+	}
 })
+
+// 多选
+const selectionChangeHandle = (selections: any[]) => {
+	dataForm.tableNameListSelections = selections.map((item: any) => item['tableName'])
+}
 
 const init = () => {
 	visible.value = true
@@ -58,6 +57,8 @@ const init = () => {
 		dataFormRef.value.resetFields()
 	}
 
+	dataForm.tableList = []
+
 	getDataSourceList()
 }
 
@@ -67,43 +68,29 @@ const getDataSourceList = () => {
 	})
 }
 
-const getTableInfoList = () => {
-	dataForm.showTableSelect = false
-	dataForm.tableInfo.tableName = ''
-	useTableInfoListApi(dataForm.datasourceId).then(res => {
-		dataForm.tableInfoList = res.data
-		dataForm.showTableSelect = true
+const getTableList = () => {
+	dataForm.table.tableName = ''
+	useDataSourceTableListApi(dataForm.datasourceId).then(res => {
+		dataForm.tableList = res.data
 	})
 }
 
-const validateTable = (rule: any, value: any, callback: (e?: Error) => any) => {
-	if (!dataForm.tableInfo.tableName) {
-		return callback(new Error('必填项不能为空'))
-	}
-	callback()
-}
-
-const dataRules = ref({
-	datasourceId: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	tableInfo: [{ validator: validateTable, trigger: 'blur' }]
-})
-
 // 表单提交
 const submitHandle = () => {
-	dataFormRef.value.validate((valid: boolean) => {
-		if (!valid) {
-			return false
-		}
+	const tableNameList = dataForm.tableNameListSelections ? dataForm.tableNameListSelections : []
+	if (tableNameList.length === 0) {
+		ElMessage.warning('请选择记录')
+		return
+	}
 
-		useImportTableSubmitApi(dataForm.tableInfo).then(() => {
-			ElMessage.success({
-				message: '操作成功',
-				duration: 500,
-				onClose: () => {
-					visible.value = false
-					emit('refreshDataList')
-				}
-			})
+	useTableImportSubmitApi(dataForm.datasourceId, tableNameList).then(() => {
+		ElMessage.success({
+			message: '操作成功',
+			duration: 500,
+			onClose: () => {
+				visible.value = false
+				emit('refreshDataList')
+			}
 		})
 	})
 }

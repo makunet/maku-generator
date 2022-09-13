@@ -5,11 +5,11 @@
 				<el-input v-model="dataForm.connName" placeholder="连接名"></el-input>
 			</el-form-item>
 			<el-form-item prop="dbType" label="数据库类型">
-				<el-select v-model="dataForm.dbType" clearable placeholder="数据库类型" class="w-percent-100">
-					<el-option value="SQLServer" label="SQLServer"></el-option>
+				<el-select v-model="dataForm.dbType" clearable placeholder="数据库类型" style="width: 100%">
 					<el-option value="MySQL" label="MySQL"></el-option>
 					<el-option value="Oracle" label="Oracle"></el-option>
 					<el-option value="PostgreSQL" label="PostgreSQL"></el-option>
+					<el-option value="SQLServer" label="SQLServer"></el-option>
 				</el-select>
 			</el-form-item>
 			<el-form-item label="数据库URL" prop="connUrl">

@@ -7,16 +7,14 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 /**
- * 表
+ * 表字段
  *
  * @author 阿沐 babamu@126.com
  */
 @Mapper
 public interface TableFieldDao extends BaseMapper<TableFieldEntity> {
 
-    List<TableFieldEntity> getByTableName(String tableName);
-
-    void deleteByTableName(String tableName);
+    List<TableFieldEntity> getByTableId(Long tableId);
 
     void deleteBatchTableIds(Long[] tableIds);
 }

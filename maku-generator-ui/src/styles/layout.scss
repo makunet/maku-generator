@@ -70,10 +70,8 @@ a:hover {
     overflow: hidden;
     width: 100%;
     background-color: var(--theme-main-bg-color);
-    .box-card{
-      background-color: #ffffff;
+    .layout-card{
       min-height: calc(100vh - 70px - var(--theme-header-height));
-      border-width: 0 !important;
     }
   }
   .layout-scrollbar {

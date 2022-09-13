@@ -1,25 +1,11 @@
 import service from '@/utils/request'
 
-export const useTableInfoApi = (id: number) => {
-	return service.get('/gen/table/' + id)
+// 生成代码（zip压缩包）
+export const useDownloadApi = (tableIds: any[]) => {
+	location.href = import.meta.env.VITE_API_URL + '/gen/generator/download?tableIds=' + tableIds.join(',')
 }
 
-export const useTableInfoListApi = (id: string) => {
-	return service.get('/gen/datasource/table/list/' + id)
-}
-
-export const useImportTableSubmitApi = (dataForm: any) => {
-	return service.post('/gen/datasource/table', dataForm)
-}
-
-export const useTableSubmitApi = (dataForm: any) => {
-	return service.put('/gen/table', dataForm)
-}
-
-export const useGeneratorApi = (dataForm: any) => {
-	return service.post('/gen/generator', dataForm)
-}
-
-export const useTableFieldSubmitApi = (tableId: number, tableData: any) => {
-	return service.put('/gen/table/field/' + tableId, tableData)
+// 生成代码（自定义目录）
+export const useGeneratorApi = (tableIds: any[]) => {
+	return service.post('/gen/generator/code', tableIds)
 }

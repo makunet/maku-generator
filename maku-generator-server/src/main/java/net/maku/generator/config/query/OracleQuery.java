@@ -1,8 +1,8 @@
 package net.maku.generator.config.query;
 
 
-import net.maku.generator.utils.DbType;
-import org.apache.commons.lang.StringUtils;
+import cn.hutool.core.util.StrUtil;
+import net.maku.generator.config.DbType;
 
 /**
  * Oracle查询
@@ -17,12 +17,12 @@ public class OracleQuery implements AbstractQuery {
     }
 
     @Override
-    public String tablesSql(String tableName) {
+    public String tableSql(String tableName) {
         StringBuilder sql = new StringBuilder();
         sql.append("select dt.table_name, dtc.comments from user_tables dt,user_tab_comments dtc ");
         sql.append("where dt.table_name = dtc.table_name ");
-        //表名查询
-        if(StringUtils.isNotBlank(tableName)){
+        // 表名查询
+        if (StrUtil.isNotBlank(tableName)) {
             sql.append("and dt.table_name = '").append(tableName).append("' ");
         }
         sql.append("order by dt.table_name asc");

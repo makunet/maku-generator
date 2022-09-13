@@ -8,7 +8,7 @@ export const menuRoutes: RouteRecordRaw[] = [
 		component: () => import('../views/generator/index.vue'),
 		meta: {
 			title: '代码生成',
-			icon: 'icon-detail'
+			icon: 'icon-fire'
 		}
 	},
 	{
@@ -17,7 +17,7 @@ export const menuRoutes: RouteRecordRaw[] = [
 		component: () => import('../views/datasource/index.vue'),
 		meta: {
 			title: '数据源管理',
-			icon: 'icon-detail'
+			icon: 'icon-database-fill'
 		}
 	},
 	{
@@ -26,7 +26,7 @@ export const menuRoutes: RouteRecordRaw[] = [
 		component: () => import('../views/field-type/index.vue'),
 		meta: {
 			title: '字段类型映射',
-			icon: 'icon-detail'
+			icon: 'icon-menu'
 		}
 	},
 	{
@@ -35,7 +35,16 @@ export const menuRoutes: RouteRecordRaw[] = [
 		component: () => import('../views/base-class/index.vue'),
 		meta: {
 			title: '基类管理',
-			icon: 'icon-detail'
+			icon: 'icon-cluster'
+		}
+	},
+	{
+		path: '/gen/project',
+		name: 'ProjectIndex',
+		component: () => import('../views/project/index.vue'),
+		meta: {
+			title: '项目名变更',
+			icon: 'icon-edit-square'
 		}
 	}
 ]

@@ -3,10 +3,10 @@
 		<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
 			<el-form-item>
 				<el-form-item>
-					<el-input v-model="state.queryForm.columnType" placeholder="字段类型" clearable></el-input>
+					<el-input v-model="state.queryForm.columnType" placeholder="字段类型"></el-input>
 				</el-form-item>
 				<el-form-item>
-					<el-input v-model="state.queryForm.attrType" placeholder="属性类型" clearable></el-input>
+					<el-input v-model="state.queryForm.attrType" placeholder="属性类型"></el-input>
 				</el-form-item>
 			</el-form-item>
 			<el-form-item>
@@ -27,8 +27,8 @@
 			<el-table-column prop="createTime" label="创建时间" header-align="center" align="center"></el-table-column>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
 				<template #default="scope">
-					<el-button type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">编辑</el-button>
-					<el-button type="text" size="small" @click="deleteBatchHandle(scope.row.id)">删除</el-button>
+					<el-button type="primary" link @click="addOrUpdateHandle(scope.row.id)">编辑</el-button>
+					<el-button type="primary" link @click="deleteBatchHandle(scope.row.id)">删除</el-button>
 				</template>
 			</el-table-column>
 		</el-table>
@@ -48,7 +48,7 @@
 	</div>
 </template>
 
-<script setup lang="ts" name="FieldType">
+<script setup lang="ts" name="FieldTypeIndex">
 import { reactive, ref } from 'vue'
 import { IHooksOptions } from '@/hooks/interface'
 import { useCrud } from '@/hooks'

@@ -2,6 +2,11 @@ package net.maku.generator.config.template;
 
 import lombok.Data;
 
+/**
+ * 项目信息
+ *
+ * @author 阿沐 babamu@126.com
+ */
 @Data
 public class ProjectInfo {
     /**

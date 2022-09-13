@@ -1,7 +1,7 @@
 package net.maku.generator.config.query;
 
 
-import net.maku.generator.utils.DbType;
+import net.maku.generator.config.DbType;
 
 /**
  * Query
@@ -18,7 +18,7 @@ public interface AbstractQuery {
     /**
      * 表信息查询 SQL
      */
-    String tablesSql(String tableName);
+    String tableSql(String tableName);
 
     /**
      * 表名称
@@ -40,12 +40,10 @@ public interface AbstractQuery {
      */
     String fieldName();
 
-
     /**
      * 字段类型
      */
     String fieldType();
-
 
     /**
      * 字段注释

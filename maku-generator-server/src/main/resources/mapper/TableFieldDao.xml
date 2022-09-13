@@ -3,18 +3,18 @@
 
 <mapper namespace="net.maku.generator.dao.TableFieldDao">
 
-    <select id="getByTableName" resultType="net.maku.generator.entity.TableFieldEntity">
-        select * from gen_table_field where table_name = #{value} order by sort
+    <select id="getByTableId" resultType="net.maku.generator.entity.TableFieldEntity">
+        select *
+        from gen_table_field
+        where table_id = #{value}
+        order by sort
     </select>
-
-    <delete id="deleteByTableName">
-        delete from gen_table_field where table_name = #{value}
-    </delete>
 
     <delete id="deleteBatchTableIds">
         delete from gen_table_field where table_id in
-        <foreach item="tableId" collection="array"  open="(" separator="," close=")">
+        <foreach item="tableId" collection="array" open="(" separator="," close=")">
             #{tableId}
         </foreach>
     </delete>
+
 </mapper>
