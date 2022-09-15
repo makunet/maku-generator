@@ -1,34 +1,19 @@
 <template>
 	<div class="navbar-container">
-		<div class="navbar-left">
-			<Hamburger />
-			<Refresh />
-		</div>
+		<Logo />
+		<div class="navbar-left">代码生成器工作台</div>
 		<div class="navbar-right">
-			<Lang />
-			<ComponentSize />
-			<a href="https://maku.net" target="_blank">
-				<svg-icon icon="icon-earth"></svg-icon>
-			</a>
 			<a href="https://github.com/makunet/maku-generator" target="_blank">
 				<svg-icon icon="icon-github-fill"></svg-icon>
 			</a>
 			<a href="https://gitee.com/makunet/maku-generator" target="_blank">
-				<svg-icon icon="icon-gitee-fill-round"></svg-icon>
+				<svg-icon icon="icon-gitee"></svg-icon>
 			</a>
-			<Fullscreen />
-			<User />
 		</div>
 	</div>
 </template>
-
 <script setup lang="ts">
-import Hamburger from './components/Hamburger.vue'
-import Refresh from './components/Refresh.vue'
-import Lang from '@/components/Lang/index.vue'
-import ComponentSize from './components/ComponentSize.vue'
-import Fullscreen from './components/Fullscreen.vue'
-import User from './components/User.vue'
+import Logo from './components/Logo.vue'
 </script>
 
 <style lang="scss" scoped>

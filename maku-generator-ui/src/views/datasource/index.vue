@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<el-card>
 		<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
 			<el-form-item>
 				<el-input v-model="state.queryForm.connName" placeholder="连接名"></el-input>
@@ -50,10 +50,10 @@
 
 		<!-- 弹窗, 新增 / 修改 -->
 		<add-or-update ref="addOrUpdateRef" @refreshDataList="getDataList"></add-or-update>
-	</div>
+	</el-card>
 </template>
 
-<script setup lang="ts" name="DataSource">
+<script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { IHooksOptions } from '@/hooks/interface'
 import { useDataSourceTestApi } from '@/api/datasource'

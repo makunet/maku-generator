@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<el-card>
 		<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
 			<el-form-item>
 				<el-input v-model="state.queryForm.projectName" placeholder="项目名"></el-input>
@@ -20,7 +20,6 @@
 			<el-table-column prop="projectCode" label="项目标识" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="projectPackage" label="项目包名" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="projectPath" label="项目路径" show-overflow-tooltip header-align="center" align="center"></el-table-column>
-			<el-table-column prop="createTime" label="创建时间" header-align="center" align="center"></el-table-column>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="180">
 				<template #default="scope">
 					<el-button type="primary" link @click="addOrUpdateHandle(scope.row.id)">修改</el-button>
@@ -44,10 +43,10 @@
 		<add-or-update ref="addOrUpdateRef" @refreshDataList="getDataList"></add-or-update>
 		<!-- 源码下载 -->
 		<download ref="downloadRef"></download>
-	</div>
+	</el-card>
 </template>
 
-<script setup lang="ts" name="ProjectIndex">
+<script setup lang="ts">
 import { useCrud } from '@/hooks'
 import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'

@@ -2,8 +2,8 @@
 	<div class="layout-error">
 		<img src="@/assets/404.png" alt="404" />
 		<div>
-			<el-button type="primary" @click="onBack">{{ $t('back') }}</el-button>
-			<el-button type="success" @click="onToHome">{{ $t('router.home') }}</el-button>
+			<el-button type="primary" @click="onBack">返回</el-button>
+			<el-button type="success" @click="onToHome">主页</el-button>
 		</div>
 	</div>
 </template>

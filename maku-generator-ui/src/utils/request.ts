@@ -1,7 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
 import { ElMessage } from 'element-plus'
-import cache from '@/utils/cache'
 
 // axios实例
 const service = axios.create({
@@ -13,8 +12,6 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use(
 	(config: any) => {
-		config.headers['Accept-Language'] = cache.getLanguage()
-
 		// 追加时间戳，防止GET请求缓存
 		if (config.method?.toUpperCase() === 'GET') {
 			config.params = { ...config.params, t: new Date().getTime() }

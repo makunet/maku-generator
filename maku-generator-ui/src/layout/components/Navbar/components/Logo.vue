@@ -1,16 +1,9 @@
 <template>
-	<div v-if="store.appStore.sidebarOpened" class="sidebar-logo">
+	<div class="sidebar-logo">
 		<el-avatar src="./favicon.ico"></el-avatar>
-		<span class="logo-title"> {{ $t('app.logoText') }}</span>
-	</div>
-	<div v-else class="sidebar-logo sidebar-logo-expend">
-		<span>{{ $t('app.miniLogoText') }}</span>
+		<span class="logo-title">Maku Generator</span>
 	</div>
 </template>
-
-<script setup lang="ts">
-import store from '@/store'
-</script>
 
 <style lang="scss" scoped>
 .sidebar-logo {
@@ -30,8 +23,5 @@ import store from '@/store'
 	.logo-title {
 		margin-left: 10px;
 	}
-}
-.sidebar-logo-expend {
-	width: 100% !important;
 }
 </style>
