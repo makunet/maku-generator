@@ -3,21 +3,38 @@
 - 演示环境：https://demo.maku.net/maku-generator
 
 
-## 本地部署
+## 本地启动
 - 通过git下载源码
 - idea、eclipse需安装lombok插件，不然会提示找不到entity的get set方法
 - 创建数据库maku_generator，数据库编码为utf8mb4
 - 执行db/mysql.sql文件，初始化数据
 - 修改application.yml，更新MySQL账号和密码、数据库名称
 - Eclipse、IDEA启动GeneratorApplication.java，则可启动项目
-- 项目访问路径：http://localhost:8088
+- 项目访问路径：http://localhost:8088/maku-generator/index.html
+
+## 其他系统集成
+- 引入 jar 包，如下所示：
+```xml
+<dependency>
+    <groupId>net.maku</groupId>
+    <artifactId>maku-generator-boot-starter</artifactId>
+    <version>2.0.0</version>
+</dependency>
+```
+- 执行SQL脚本，`db/mysql.sql`
+- 如果有安全控制，还需要放行`/maku-generator/**`路径
+- 在`application.yml`里面，配置代码生成器的模板路径，需在resources下面
+```yml
+generator:
+  template: /template/maku-boot
+```
+- 访问路径：`/maku-generator/index.html`
 
 
 ## 交流和反馈
 - 官方社区：https://maku.net
 - Github仓库：https://github.com/makunet/maku-generator
 - Gitee仓库：https://gitee.com/makunet/maku-generator
-- 技术解答、交流、反馈、建议等，请移步到官方社区，我们会及时回复，也方便今后的小伙伴寻找答案，感谢理解！
 
 
 ## 微信交流群
