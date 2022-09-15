@@ -41,7 +41,7 @@ public class GeneratorServiceImpl implements GeneratorService {
     private final GeneratorConfig generatorConfig;
     private final TableService tableService;
     private final TableFieldService tableFieldService;
-    
+
     @Override
     public void downloadCode(Long tableId, ZipOutputStream zip) {
         // 数据模型
@@ -105,7 +105,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         String dbType = datasourceService.getDatabaseProductName(table.getDatasourceId());
         dataModel.put("dbType", dbType);
 
-        //项目信息
+        // 项目信息
         dataModel.put("package", table.getPackageName());
         dataModel.put("packagePath", table.getPackageName().replace(".", File.separator));
         dataModel.put("version", table.getVersion());
@@ -155,7 +155,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 
         // 基类
         BaseClassEntity baseClass = baseClassService.getById(table.getBaseclassId());
-        baseClass.setPackageName(TemplateUtils.getContent(baseClass.getPackageName(), dataModel));
+        baseClass.setPackageName(baseClass.getPackageName());
         dataModel.put("baseClass", baseClass);
 
         // 基类字段
