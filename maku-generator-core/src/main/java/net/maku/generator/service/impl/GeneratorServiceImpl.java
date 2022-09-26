@@ -113,6 +113,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         dataModel.put("ModuleName", StrUtil.upperFirst(table.getModuleName()));
         dataModel.put("functionName", table.getFunctionName());
         dataModel.put("FunctionName", StrUtil.upperFirst(table.getFunctionName()));
+        dataModel.put("formLayout", table.getFormLayout());
 
         // 开发者信息
         dataModel.put("author", table.getAuthor());
@@ -122,8 +123,10 @@ public class GeneratorServiceImpl implements GeneratorService {
 
         // 设置字段分类
         setFieldTypeList(dataModel, table);
+
         // 设置基类信息
         setBaseClass(dataModel, table);
+
         // 导入的包列表
         Set<String> importList = fieldTypeService.getPackageByTableId(table.getId());
         dataModel.put("importList", importList);
@@ -131,8 +134,8 @@ public class GeneratorServiceImpl implements GeneratorService {
         // 表信息
         dataModel.put("tableName", table.getTableName());
         dataModel.put("tableComment", table.getTableComment());
-        dataModel.put("ClassName", table.getClassName());
         dataModel.put("className", StrUtil.lowerFirst(table.getClassName()));
+        dataModel.put("ClassName", table.getClassName());
         dataModel.put("fieldList", table.getFieldList());
 
         // 生成路径
