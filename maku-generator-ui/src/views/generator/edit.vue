@@ -1,6 +1,6 @@
 <template>
-	<el-dialog v-model="visible" title="编辑" :close-on-click-modal="false" :fullscreen="true">
-		<el-tabs v-model="activeName" @tab-click="handleClick">
+  <el-drawer v-model="visible" title="编辑" size="85%" :with-header="false">
+    <el-tabs v-model="activeName" @tab-click="handleClick">
 			<el-tab-pane label="属性设置" name="field">
 				<vxe-table
 					ref="fieldTable"
@@ -37,7 +37,7 @@
 					</vxe-column>
 					<vxe-column field="autoFill" title="自动填充">
 						<template #default="{ row }">
-							<vxe-select v-model="row.autoFill" clearable>
+							<vxe-select v-model="row.autoFill">
 								<vxe-option v-for="item in fillList" :key="item.value" :value="item.value" :label="item.label"></vxe-option>
 							</vxe-select>
 						</template>
@@ -129,7 +129,7 @@
 			<el-button @click="visible = false">取消</el-button>
 			<el-button type="primary" @click="submitHandle()">确定</el-button>
 		</template>
-	</el-dialog>
+  </el-drawer>
 </template>
 
 <script setup lang="ts">
@@ -262,6 +262,11 @@ defineExpose({
 .sortable-row-gen .drag-btn {
 	cursor: move;
 	font-size: 12px;
+}
+.vxe-select--panel {
+  position: fixed !important;
+  min-width: 10% !important;
+  left: auto !important;
 }
 
 .sortable-row-gen .vxe-body--row.sortable-ghost,
