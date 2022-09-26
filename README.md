@@ -1,19 +1,26 @@
 ## 项目说明
 - maku-generator是一款低代码生成器，可根据自定义模板内容，快速生成代码，可实现项目的快速开发、上线，减少重复的代码编写，开发人员只需专注业务逻辑即可。
+- 开发文档：https://maku.net/docs/maku-generator
 - 演示环境：https://demo.maku.net/maku-generator
 
 
+## 项目特点
+- 友好的代码结构及注释，便于阅读及二次开发
+- 支持spring boot starter，能很方便集成到第三方项目
+- 支持通过配置数据源，快速生成CRUD代码，减少重复工作
+- 支持MySQL、Oracle、SQLServer、PostgreSQL等主流的数据库
+- 支持第三方Java项目包名修改，修改包名变得简单快速
+- 支持批量导入表、批量生成代码以及同步表结构等功能
+
 ## 本地启动
 - 通过git下载源码
-- idea、eclipse需安装lombok插件，不然会提示找不到entity的get set方法
 - 创建数据库maku_generator，数据库编码为utf8mb4
 - 执行db/mysql.sql文件，初始化数据
 - 修改application.yml，更新MySQL账号和密码、数据库名称
-- Eclipse、IDEA启动GeneratorApplication.java，则可启动项目
+- 运行GeneratorApplication.java，则可启动项目
 - 项目访问路径：http://localhost:8088/maku-generator/index.html
 
-## 其他系统集成
-- 引入 jar 包，如下所示：
+## maven依赖引入
 ```xml
 <dependency>
     <groupId>net.maku</groupId>
@@ -21,34 +28,27 @@
     <version>2.0.0</version>
 </dependency>
 ```
-- 执行SQL脚本，`db/mysql.sql`
-- 如果有安全控制，还需要放行`/maku-generator/**`路径
-- 在`application.yml`里面，配置代码生成器的模板路径，需在resources下面
-```yml
-generator:
-  template: /template/maku-boot
-```
-- 访问路径：`/maku-generator/index.html`
-
 
 ## 交流和反馈
-- 官方社区：https://maku.net
-- Github仓库：https://github.com/makunet/maku-generator
+- 官网地址：https://maku.net
 - Gitee仓库：https://gitee.com/makunet/maku-generator
+- Github仓库：https://github.com/makunet/maku-generator
 
 
 ## 微信交流群
 为了更好的交流，我们新提供了微信交流群，需扫描下面的二维码，关注公众号，回复【加群】，根据提示信息，作者会拉你进群的，感谢配合！
 
-![输入图片说明](maku-generator-ui/public/images/qrcode.png)
+![输入图片说明](images/qrcode.png)
 
 ## 支持
 如果觉得框架还不错，或者已经在使用了，希望你可以去 [Github](https://github.com/makunet/maku-generator) 或 [Gitee](https://gitee.com/makunet/maku-generator) 帮作者点个 ⭐ Star，这将是对作者极大的鼓励与支持。
 
 
 ## 效果图
-![输入图片说明](maku-generator-ui/public/images/1.png)
+![输入图片说明](images/1.png)
 
-![输入图片说明](maku-generator-ui/public/images/2.png)
+![输入图片说明](images/2.png)
 
-![输入图片说明](maku-generator-ui/public/images/3.png)
+![输入图片说明](images/3.png)
+
+![输入图片说明](images/4.png)
