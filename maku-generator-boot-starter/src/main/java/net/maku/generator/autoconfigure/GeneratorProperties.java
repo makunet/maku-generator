@@ -14,5 +14,5 @@ public class GeneratorProperties {
     /**
      * 模板路径
      */
-    private String template;
+    private String template = "/template/";
 }

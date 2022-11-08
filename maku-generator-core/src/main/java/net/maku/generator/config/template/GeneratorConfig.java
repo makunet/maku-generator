@@ -22,10 +22,6 @@ public class GeneratorConfig {
     }
 
     public GeneratorInfo getGeneratorConfig() {
-        if (StrUtil.isBlank(template)) {
-            throw new ServerException("模板不存在，需指定模板");
-        }
-
         // 模板路径，如果不是以/结尾，则添加/
         if (!StrUtil.endWith(template, '/')) {
             template = template + "/";
