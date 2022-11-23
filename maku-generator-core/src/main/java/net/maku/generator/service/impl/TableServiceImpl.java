@@ -107,8 +107,9 @@ public class TableServiceImpl extends BaseServiceImpl<TableDao, TableEntity> imp
         List<TableFieldEntity> tableFieldList = GenUtils.getTableFieldList(dataSource, table.getId(), table.getTableName());
         // 初始化字段数据
         tableFieldService.initFieldList(tableFieldList);
-        // 批量保存列数据
-        tableFieldService.saveBatch(tableFieldList);
+        
+        // 保存列数据
+        tableFieldList.forEach(tableFieldService::save);
 
         try {
             //释放数据源
