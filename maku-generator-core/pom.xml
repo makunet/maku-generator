@@ -19,6 +19,7 @@
         <oracle.version>11.2.0.3</oracle.version>
         <freemarker.version>2.3.31</freemarker.version>
         <sqlserver.version>11.2.1.jre8</sqlserver.version>
+        <dameng.version>8.1.2.141</dameng.version>
     </properties>
 
     <dependencies>
@@ -57,6 +58,11 @@
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>${oracle.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dameng</groupId>
+            <artifactId>DmJdbcDriver18</artifactId>
+            <version>${dameng.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
