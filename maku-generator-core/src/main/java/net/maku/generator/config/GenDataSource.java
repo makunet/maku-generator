@@ -55,6 +55,8 @@ public class GenDataSource {
             this.dbQuery = new PostgreSqlQuery();
         } else if (dbType == DbType.SQLServer) {
             this.dbQuery = new SQLServerQuery();
+        } else if (dbType == DbType.DM) {
+            this.dbQuery = new DmQuery();
         }
 
         try {
@@ -76,6 +78,8 @@ public class GenDataSource {
             this.dbQuery = new PostgreSqlQuery();
         } else if (dbType == DbType.SQLServer) {
             this.dbQuery = new SQLServerQuery();
+        } else if (dbType == DbType.DM) {
+            this.dbQuery = new DmQuery();
         }
 
         this.connection = connection;
