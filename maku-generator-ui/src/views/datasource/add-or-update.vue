@@ -10,6 +10,7 @@
 					<el-option value="Oracle" label="Oracle"></el-option>
 					<el-option value="PostgreSQL" label="PostgreSQL"></el-option>
 					<el-option value="SQLServer" label="SQLServer"></el-option>
+          <el-option value="DM" label="达梦8"></el-option>
 				</el-select>
 			</el-form-item>
 			<el-form-item label="数据库URL" prop="connUrl">
