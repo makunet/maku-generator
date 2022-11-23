@@ -42,7 +42,7 @@ public class GenDataSource {
 
     public GenDataSource(DataSourceEntity entity) {
         this.id = entity.getId();
-        this.dbType = DbType.valueOf(entity.getDbType());
+        this.dbType = DbType.getValue(entity.getDbType());
         this.connUrl = entity.getConnUrl();
         this.username = entity.getUsername();
         this.password = entity.getPassword();
@@ -68,7 +68,7 @@ public class GenDataSource {
 
     public GenDataSource(Connection connection) throws SQLException {
         this.id = 0L;
-        this.dbType = DbType.valueOf(connection.getMetaData().getDatabaseProductName());
+        this.dbType = DbType.getValue(connection.getMetaData().getDatabaseProductName());
 
         if (dbType == DbType.MySQL) {
             this.dbQuery = new MySqlQuery();
