@@ -3,6 +3,7 @@ package net.maku.generator.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.maku.generator.common.page.PageResult;
 import net.maku.generator.common.query.Query;
 import net.maku.generator.common.service.impl.BaseServiceImpl;
@@ -26,6 +27,7 @@ import java.util.List;
  */
 @Service
 @AllArgsConstructor
+@Slf4j
 public class DataSourceServiceImpl extends BaseServiceImpl<DataSourceDao, DataSourceEntity> implements DataSourceService {
     private final DataSource dataSource;
 
@@ -60,7 +62,7 @@ public class DataSourceServiceImpl extends BaseServiceImpl<DataSourceDao, DataSo
             try {
                 info = new GenDataSource(dataSource.getConnection());
             } catch (SQLException e) {
-                e.printStackTrace();
+                log.error(e.getMessage(), e);
             }
         } else {
             info = new GenDataSource(this.getById(datasourceId));
