@@ -1,5 +1,7 @@
 package net.maku.generator.common.utils;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,6 +11,7 @@ import java.util.Date;
  * 
  * @author 阿沐 babamu@126.com
  */
+@Slf4j
 public class DateUtils {
 	/** 时间格式(yyyy-MM-dd) */
 	public final static String DATE_PATTERN = "yyyy-MM-dd";
@@ -48,7 +51,7 @@ public class DateUtils {
         try {
             return new SimpleDateFormat(pattern).parse(date);
         } catch (ParseException e) {
-            e.printStackTrace();
+        	log.error(e.getMessage(), e);
         }
         return null;
     }

@@ -1,6 +1,7 @@
 package net.maku.generator.config;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import net.maku.generator.config.query.*;
 import net.maku.generator.entity.DataSourceEntity;
 import net.maku.generator.utils.DbUtils;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
  * @author 阿沐 babamu@126.com
  */
 @Data
+@Slf4j
 public class GenDataSource {
     /**
      * 数据源ID
@@ -62,7 +64,7 @@ public class GenDataSource {
         try {
             this.connection = DbUtils.getConnection(this);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
         }
     }
 
