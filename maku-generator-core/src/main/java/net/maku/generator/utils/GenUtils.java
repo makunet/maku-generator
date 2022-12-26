@@ -148,4 +148,31 @@ public class GenUtils {
 
         return functionName;
     }
+    
+    /**
+     * 表名转驼峰并移除前后缀
+     * @param upperFirst 首字母大写
+     * @param tableName 表名
+     * @param removePrefix 删除前缀
+     * @param removeSuffix 删除后缀
+     * @return java.lang.String
+     * @date 2022/12/24 14:33
+     */
+    public static String camelCase(boolean upperFirst,String tableName, String removePrefix, String removeSuffix){
+        String className = tableName;
+        // 移除前缀
+        if (StrUtil.isNotBlank(removePrefix)){
+            className = StrUtil.removePrefix(tableName,removePrefix);
+        }
+        // 移除后缀
+        if (StrUtil.isNotBlank(removeSuffix)){
+            className = StrUtil.removeSuffix(className,removeSuffix);
+        }
+        // 是否首字母大写
+        if (upperFirst){
+            return NamingCase.toPascalCase(className);
+        }else {
+            return NamingCase.toCamelCase(className);
+        }
+    }
 }
