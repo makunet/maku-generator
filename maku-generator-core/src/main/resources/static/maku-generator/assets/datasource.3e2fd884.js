@@ -1,0 +1,1 @@
+import{s as t}from"./index.8dec4260.js";const a=e=>t.get("/gen/datasource/test/"+e),r=e=>t.get("/gen/datasource/"+e),u=()=>t.get("/gen/datasource/list"),c=e=>e.id?t.put("/gen/datasource",e):t.post("/gen/datasource",e),o=e=>t.get("/gen/datasource/table/list/"+e);export{o as a,r as b,c,a as d,u};
