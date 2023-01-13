@@ -2,6 +2,7 @@ package net.maku.generator.utils;
 
 import cn.hutool.core.io.IoUtil;
 import freemarker.template.Template;
+import lombok.extern.slf4j.Slf4j;
 import net.maku.generator.common.exception.ServerException;
 
 import java.io.StringReader;
@@ -13,6 +14,7 @@ import java.util.Map;
  *
  * @author 阿沐 babamu@126.com
  */
+@Slf4j
 public class TemplateUtils {
     /**
      * 获取模板渲染后的内容
@@ -33,7 +35,7 @@ public class TemplateUtils {
             Template template = new Template(templateName, reader, null, "utf-8");
             template.process(dataModel, sw);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage(), e);
             throw new ServerException("渲染模板失败，请检查模板语法", e);
         }
 
