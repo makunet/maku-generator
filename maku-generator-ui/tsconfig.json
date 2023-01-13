@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
+    "skipLibCheck": true,
 //    "allowJs": true,
     "sourceMap": true,
     "resolveJsonModule": true,
