@@ -158,7 +158,6 @@ public class GenUtils {
      * @param removePrefix 删除前缀
      * @param removeSuffix 删除后缀
      * @return java.lang.String
-     * @date 2022/12/24 14:33
      */
     public static String camelCase(boolean upperFirst, String tableName, String removePrefix, String removeSuffix) {
         String className = tableName;
