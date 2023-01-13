@@ -1,6 +1,6 @@
 <template>
-  <el-drawer v-model="visible" title="编辑" :size="1200" :with-header="false">
-    <el-tabs v-model="activeName" @tab-click="handleClick">
+	<el-drawer v-model="visible" title="编辑" :size="1200" :with-header="false">
+		<el-tabs v-model="activeName" @tab-click="handleClick">
 			<el-tab-pane label="属性设置" name="field">
 				<vxe-table
 					ref="fieldTable"
@@ -129,7 +129,7 @@
 			<el-button @click="visible = false">取消</el-button>
 			<el-button type="primary" @click="submitHandle()">确定</el-button>
 		</template>
-  </el-drawer>
+	</el-drawer>
 </template>
 
 <script setup lang="ts">
@@ -262,11 +262,6 @@ defineExpose({
 .sortable-row-gen .drag-btn {
 	cursor: move;
 	font-size: 12px;
-}
-.vxe-select--panel {
-  position: fixed !important;
-  min-width: 10% !important;
-  left: auto !important;
 }
 
 .sortable-row-gen .vxe-body--row.sortable-ghost,
