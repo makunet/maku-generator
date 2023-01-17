@@ -14,13 +14,14 @@
 
 ## 本地启动
 - 通过git下载源码
-- 创建数据库maku_generator，数据库编码为utf8mb4
+- 如使用MySQL8.0（其他数据库类似），则创建数据库maku_generator，数据库编码为utf8mb4
 - 执行db/mysql.sql文件，初始化数据
 - 修改application.yml，更新MySQL账号和密码、数据库名称
 - 运行GeneratorApplication.java，则可启动项目
 - 项目访问路径：http://localhost:8088/maku-generator/index.html
 
 ## maven依赖引入
+### SpringBoot 2.x，依赖如下：
 ```xml
 <dependency>
     <groupId>net.maku</groupId>
@@ -28,6 +29,16 @@
     <version>2.1.1</version>
 </dependency>
 ```
+
+### SpringBoot 3.x，依赖如下：
+```xml
+<dependency>
+    <groupId>net.maku</groupId>
+    <artifactId>maku-generator-boot-starter</artifactId>
+    <version>3.0.0</version>
+</dependency>
+```
+
 
 ## 交流和反馈
 - 官网地址：https://maku.net

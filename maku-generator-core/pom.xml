@@ -3,22 +3,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>maku-generator-core</artifactId>
-    <version>2.1.1</version>
+    <version>3.0.0</version>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>net.maku</groupId>
         <artifactId>maku-generator</artifactId>
-        <version>2.1.1</version>
+        <version>3.0.0</version>
     </parent>
 
     <properties>
         <skipTests>true</skipTests>
-        <mybatisplus.version>3.5.2</mybatisplus.version>
-        <hutool.version>5.8.10</hutool.version>
+        <mybatisplus.version>3.5.3.1</mybatisplus.version>
+        <hutool.version>5.8.11</hutool.version>
         <oracle.version>11.2.0.3</oracle.version>
         <freemarker.version>2.3.31</freemarker.version>
-        <sqlserver.version>11.2.1.jre8</sqlserver.version>
+        <sqlserver.version>11.2.3.jre17</sqlserver.version>
         <dameng.version>8.1.2.141</dameng.version>
     </properties>
 
