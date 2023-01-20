@@ -61,6 +61,7 @@ public class TableFieldServiceImpl extends BaseServiceImpl<TableFieldDao, TableF
             }
 
             field.setAutoFill(AutoFillEnum.DEFAULT.name());
+            field.setFormItem(true);
             field.setGridItem(true);
             field.setQueryType("=");
             field.setQueryFormType("text");
