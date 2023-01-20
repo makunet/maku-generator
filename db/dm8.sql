@@ -188,25 +188,6 @@ COMMENT ON COLUMN gen_project_modify.create_time IS '创建时间';
 
 
 -- 用于测试代码生成器的表结构 --
-CREATE TABLE gen_test_member
-(
-    member_id   bigint IDENTITY NOT NULL,
-    name        varchar(50),
-    gender      int,
-    age         int,
-    occupation  varchar(100),
-    create_time datetime,
-    PRIMARY KEY (member_id)
-);
-
-COMMENT ON TABLE gen_test_member IS '测试1';
-COMMENT ON COLUMN gen_test_member.member_id IS '会员ID';
-COMMENT ON COLUMN gen_test_member.name IS '姓名';
-COMMENT ON COLUMN gen_test_member.gender IS '性别';
-COMMENT ON COLUMN gen_test_member.age IS '年龄';
-COMMENT ON COLUMN gen_test_member.occupation IS '职业';
-COMMENT ON COLUMN gen_test_member.create_time IS '创建时间';
-
 CREATE TABLE gen_test_student
 (
     id          bigint IDENTITY NOT NULL,
@@ -269,7 +250,7 @@ INSERT INTO gen_field_type (column_type, attr_type, package_name, create_time) V
 INSERT INTO gen_field_type (column_type, attr_type, package_name, create_time) VALUES ('int2', 'Integer', NULL, now());
 INSERT INTO gen_field_type (column_type, attr_type, package_name, create_time) VALUES ('numeric', 'BigDecimal', 'java.math.BigDecimal', now());
 
-INSERT INTO gen_base_class (package_name, code, fields, remark, create_time) VALUES ('net.maku.framework.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', now());
+INSERT INTO gen_base_class (package_name, code, fields, remark, create_time) VALUES ('net.maku.framework.mybatis.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', now());
 
 INSERT INTO gen_project_modify (project_name, project_code, project_package, project_path, modify_project_name, modify_project_code, modify_project_package, exclusions, modify_suffix, create_time) VALUES ('maku-boot', 'maku', 'net.maku', 'D:/makunet/maku-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', now());
 INSERT INTO gen_project_modify (project_name, project_code, project_package, project_path, modify_project_name, modify_project_code, modify_project_package, exclusions, modify_suffix, create_time) VALUES ('maku-cloud', 'maku', 'net.maku', 'D:/makunet/maku-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', now());

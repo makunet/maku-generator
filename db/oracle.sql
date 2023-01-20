@@ -188,25 +188,6 @@ COMMENT ON COLUMN gen_project_modify.create_time IS '创建时间';
 
 
 -- 用于测试代码生成器的表结构 --
-CREATE TABLE gen_test_member
-(
-    member_id   NUMBER(20, 0) NOT NULL,
-    name        varchar2(50),
-    gender      NUMBER(2, 0),
-    age         NUMBER(10, 0),
-    occupation  varchar2(100),
-    create_time date,
-    PRIMARY KEY (member_id)
-);
-
-COMMENT ON TABLE gen_test_member IS '测试1';
-COMMENT ON COLUMN gen_test_member.member_id IS '会员ID';
-COMMENT ON COLUMN gen_test_member.name IS '姓名';
-COMMENT ON COLUMN gen_test_member.gender IS '性别';
-COMMENT ON COLUMN gen_test_member.age IS '年龄';
-COMMENT ON COLUMN gen_test_member.occupation IS '职业';
-COMMENT ON COLUMN gen_test_member.create_time IS '创建时间';
-
 CREATE TABLE gen_test_student
 (
     id          NUMBER(20, 0) NOT NULL,
@@ -279,13 +260,6 @@ begin
 end;
 /
 
-create sequence gen_test_member_seq start with 1 increment by 1;
-create trigger gen_test_member_trigger before insert on gen_test_member for each row when(new.member_id is null)
-begin
-    select gen_test_member_seq.nextval into :new.member_id from dual;
-end;
-/
-
 create sequence gen_test_student_seq start with 1 increment by 1;
 create trigger gen_test_student_trigger before insert on gen_test_student for each row when(new.id is null)
 begin
@@ -325,7 +299,7 @@ INSERT INTO gen_field_type (column_type, attr_type, package_name, create_time) V
 INSERT INTO gen_field_type (column_type, attr_type, package_name, create_time) VALUES ('int2', 'Integer', NULL, CURRENT_DATE);
 INSERT INTO gen_field_type (column_type, attr_type, package_name, create_time) VALUES ('numeric', 'BigDecimal', 'java.math.BigDecimal', CURRENT_DATE);
 
-INSERT INTO gen_base_class (package_name, code, fields, remark, create_time) VALUES ('net.maku.framework.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', CURRENT_DATE);
+INSERT INTO gen_base_class (package_name, code, fields, remark, create_time) VALUES ('net.maku.framework.mybatis.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', CURRENT_DATE);
 
 INSERT INTO gen_project_modify (project_name, project_code, project_package, project_path, modify_project_name, modify_project_code, modify_project_package, exclusions, modify_suffix, create_time) VALUES ('maku-boot', 'maku', 'net.maku', 'D:/makunet/maku-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', CURRENT_DATE);
 INSERT INTO gen_project_modify (project_name, project_code, project_package, project_path, modify_project_name, modify_project_code, modify_project_package, exclusions, modify_suffix, create_time) VALUES ('maku-cloud', 'maku', 'net.maku', 'D:/makunet/maku-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', CURRENT_DATE);
