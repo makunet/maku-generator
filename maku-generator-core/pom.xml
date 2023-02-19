@@ -19,6 +19,7 @@
         <oracle.version>11.2.0.3</oracle.version>
         <freemarker.version>2.3.31</freemarker.version>
         <dameng.version>8.1.2.141</dameng.version>
+        <clickhouse.version>0.3.2</clickhouse.version>
     </properties>
 
     <dependencies>
@@ -61,6 +62,11 @@
             <groupId>com.dameng</groupId>
             <artifactId>DmJdbcDriver18</artifactId>
             <version>${dameng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.yandex.clickhouse</groupId>
+            <artifactId>clickhouse-jdbc</artifactId>
+            <version>${clickhouse.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

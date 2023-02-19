@@ -59,6 +59,8 @@ public class GenDataSource {
             this.dbQuery = new SQLServerQuery();
         } else if (dbType == DbType.DM) {
             this.dbQuery = new DmQuery();
+        }  else if (dbType == DbType.Clickhouse) {
+            this.dbQuery = new ClickHouseQuery();
         }
 
         try {
@@ -82,6 +84,8 @@ public class GenDataSource {
             this.dbQuery = new SQLServerQuery();
         } else if (dbType == DbType.DM) {
             this.dbQuery = new DmQuery();
+        } else if (dbType == DbType.Clickhouse) {
+            this.dbQuery = new ClickHouseQuery();
         }
 
         this.connection = connection;
