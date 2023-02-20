@@ -30,6 +30,7 @@ public class DmQuery implements AbstractQuery {
     }
 
 
+    @Override
     public String tableFieldsSql() {
         return
                 "SELECT T2.COLUMN_NAME,T1.COMMENTS," +
