@@ -42,7 +42,7 @@ public class ClickHouseQuery implements AbstractQuery {
 
     @Override
     public String tableComment() {
-        return "name";
+        return "comment";
     }
 
     @Override
