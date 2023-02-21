@@ -37,6 +37,7 @@ import java.util.stream.Collectors;
  * 数据表
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 @Service
 @AllArgsConstructor
@@ -107,7 +108,7 @@ public class TableServiceImpl extends BaseServiceImpl<TableDao, TableEntity> imp
         List<TableFieldEntity> tableFieldList = GenUtils.getTableFieldList(dataSource, table.getId(), table.getTableName());
         // 初始化字段数据
         tableFieldService.initFieldList(tableFieldList);
-        
+
         // 保存列数据
         tableFieldList.forEach(tableFieldService::save);
 

@@ -7,6 +7,7 @@ import net.maku.generator.common.exception.ErrorCode;
  * 响应数据
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 @Data
 public class Result<T> {

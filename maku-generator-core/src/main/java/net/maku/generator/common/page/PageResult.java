@@ -9,6 +9,7 @@ import java.util.List;
  * 分页工具类
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 @Data
 public class PageResult<T> implements Serializable {
@@ -20,11 +21,12 @@ public class PageResult<T> implements Serializable {
 
     /**
      * 分页
-     * @param list   列表数据
-     * @param total  总记录数
+     *
+     * @param list  列表数据
+     * @param total 总记录数
      */
     public PageResult(List<T> list, long total) {
         this.list = list;
-        this.total = (int)total;
+        this.total = (int) total;
     }
 }

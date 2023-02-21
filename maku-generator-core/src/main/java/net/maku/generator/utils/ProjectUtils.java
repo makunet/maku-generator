@@ -14,6 +14,7 @@ import java.util.Map;
  * 项目名变更 工具类
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 public class ProjectUtils {
     /**

@@ -6,6 +6,7 @@ import cn.hutool.core.util.StrUtil;
  * 数据库类型 枚举
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 public enum DbType {
     MySQL("com.mysql.cj.jdbc.Driver"),

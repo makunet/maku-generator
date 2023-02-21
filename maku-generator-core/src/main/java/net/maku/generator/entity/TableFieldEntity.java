@@ -8,6 +8,7 @@ import lombok.Data;
  * 表字段
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 @Data
 @TableName("gen_table_field")

@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+
 import java.util.List;
 
 /**
  * 项目名变更
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 @RestController
 @RequestMapping("maku-generator/gen/project")

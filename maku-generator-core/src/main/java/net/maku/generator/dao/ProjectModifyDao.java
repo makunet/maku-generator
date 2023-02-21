@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
  * 项目名变更
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 @Mapper
 public interface ProjectModifyDao extends BaseDao<ProjectModifyEntity> {

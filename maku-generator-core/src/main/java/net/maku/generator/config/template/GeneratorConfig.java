@@ -13,6 +13,7 @@ import java.nio.charset.StandardCharsets;
  * 代码生成配置内容
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 public class GeneratorConfig {
     private String template;

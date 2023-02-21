@@ -9,6 +9,7 @@ import net.maku.generator.entity.TableEntity;
  * 数据表
  *
  * @author 阿沐 babamu@126.com
+ * <a href="https://maku.net">MAKU</a>
  */
 public interface TableService extends BaseService<TableEntity> {
 
