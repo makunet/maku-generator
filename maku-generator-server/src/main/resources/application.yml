@@ -34,7 +34,7 @@ spring:
 
 # 需要指定对应的模板
 generator:
-  template: /template/maku-boot/v2
+  template: /template/maku-boot
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
