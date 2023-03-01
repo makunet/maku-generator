@@ -1,6 +1,6 @@
 {
   "name": "maku-generator-ui",
-  "version": "2.1.1",
+  "version": "3.0.2",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
