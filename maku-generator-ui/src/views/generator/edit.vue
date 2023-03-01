@@ -121,7 +121,6 @@
 							</vxe-select>
 						</template>
 					</vxe-column>
-					<vxe-column field="queryDict" title="查询字典类型" :edit-render="{ name: 'input' }"></vxe-column>
 				</vxe-table>
 			</el-tab-pane>
 		</el-tabs>

@@ -99,8 +99,4 @@ public class TableFieldEntity {
      * 查询表单类型
      */
     private String queryFormType;
-    /**
-     * 查询字典类型
-     */
-    private String queryDict;
 }
