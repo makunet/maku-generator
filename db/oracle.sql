@@ -125,7 +125,6 @@ CREATE TABLE gen_table_field
     query_item      NUMBER(2, 0),
     query_type      varchar2(200),
     query_form_type varchar2(200),
-    query_dict      varchar2(200),
     primary key (id)
 );
 
@@ -152,7 +151,6 @@ COMMENT ON COLUMN gen_table_field.grid_sort IS '列表排序 0：否  1：是';
 COMMENT ON COLUMN gen_table_field.query_item IS '查询项 0：否  1：是';
 COMMENT ON COLUMN gen_table_field.query_type IS '查询方式';
 COMMENT ON COLUMN gen_table_field.query_form_type IS '查询表单类型';
-COMMENT ON COLUMN gen_table_field.query_dict IS '查询字典类型';
 
 
 CREATE TABLE gen_project_modify

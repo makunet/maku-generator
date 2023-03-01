@@ -82,7 +82,6 @@ CREATE TABLE gen_table_field
     query_item      int,
     query_type      varchar(200),
     query_form_type varchar(200),
-    query_dict      varchar(200),
     primary key (id)
 );
 
