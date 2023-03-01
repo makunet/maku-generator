@@ -27,6 +27,7 @@
 ### SpringBoot 2.x，依赖如下：
 
 ```xml
+
 <dependency>
     <groupId>net.maku</groupId>
     <artifactId>maku-generator-boot-starter</artifactId>
@@ -37,10 +38,11 @@
 ### SpringBoot 3.x，依赖如下：
 
 ```xml
+
 <dependency>
     <groupId>net.maku</groupId>
     <artifactId>maku-generator-boot-starter</artifactId>
-    <version>3.0.1</version>
+    <version>3.0.2</version>
 </dependency>
 ```
 
