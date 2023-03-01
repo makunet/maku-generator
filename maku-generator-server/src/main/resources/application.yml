@@ -11,20 +11,20 @@ spring:
     username: maku
     password: 123456
     # Oracle
-#    driver-class-name: oracle.jdbc.OracleDriver
-#    url: jdbc:oracle:thin:@localhost:1521:xe
-#    username: maku_generator
-#    password: maku_generator
+    #    driver-class-name: oracle.jdbc.OracleDriver
+    #    url: jdbc:oracle:thin:@localhost:1521:xe
+    #    username: maku_generator
+    #    password: maku_generator
     # SQLServer
-#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#    url: jdbc:sqlserver://localhost:1433;DatabaseName=maku_generator;encrypt=true;trustServerCertificate=true
-#    username: sa
-#    password: 123456@maku
+    #    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #    url: jdbc:sqlserver://localhost:1433;DatabaseName=maku_generator;encrypt=true;trustServerCertificate=true
+    #    username: sa
+    #    password: 123456@maku
     # postgresql
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/postgres
-#    username: postgres
-#    password: 123456
+    #    driver-class-name: org.postgresql.Driver
+    #    url: jdbc:postgresql://localhost:5432/postgres
+    #    username: postgres
+    #    password: 123456
     # 达梦8
 #    driver-class-name: dm.jdbc.driver.DmDriver
 #    url: jdbc:dm://localhost:5236/maku_generator?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
