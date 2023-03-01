@@ -49,7 +49,7 @@
 					</vxe-column>
 				</vxe-table>
 			</el-tab-pane>
-			<el-tab-pane label="表单页面" name="form">
+			<el-tab-pane label="表单配置" name="form">
 				<vxe-table
 					ref="formTable"
 					border
@@ -81,7 +81,7 @@
 					<vxe-column field="formDict" title="表单字典类型" :edit-render="{ name: 'input' }"></vxe-column>
 				</vxe-table>
 			</el-tab-pane>
-			<el-tab-pane label="列表查询" name="third">
+			<el-tab-pane label="列表配置" name="grid">
 				<vxe-table
 					ref="gridTable"
 					border
@@ -102,6 +102,19 @@
 							<vxe-checkbox v-model="row.gridSort"></vxe-checkbox>
 						</template>
 					</vxe-column>
+				</vxe-table>
+			</el-tab-pane>
+			<el-tab-pane label="查询配置" name="query">
+				<vxe-table
+					ref="queryTable"
+					border
+					row-key
+					:data="fieldList"
+					:checkbox-config="{ checkStrictly: true }"
+					:edit-config="{ trigger: 'click', mode: 'cell' }"
+				>
+					<vxe-column field="attrName" title="属性名"></vxe-column>
+					<vxe-column field="fieldComment" title="说明"></vxe-column>
 					<vxe-column field="queryItem" title="查询显示">
 						<template #default="{ row }">
 							<vxe-checkbox v-model="row.queryItem"></vxe-checkbox>
@@ -144,11 +157,13 @@ const activeName = ref()
 const fieldTable = ref<VxeTableInstance>()
 const formTable = ref<VxeTableInstance>()
 const gridTable = ref<VxeTableInstance>()
+const queryTable = ref<VxeTableInstance>()
 
 const handleClick = (tab: TabsPaneContext) => {
 	if (tab.paneName !== 'field') {
 		formTable.value?.loadData(fieldList.value)
 		gridTable.value?.loadData(fieldList.value)
+		queryTable.value?.loadData(fieldList.value)
 	}
 }
 
