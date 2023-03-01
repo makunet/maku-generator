@@ -6,16 +6,16 @@
 			<#if field.formType == 'text' || field.formType == 'textarea' || field.formType == 'editor'>
 			  <el-input v-model="state.queryForm.${field.attrName}" placeholder="${field.fieldComment!}"></el-input>
 			<#elseif field.queryFormType == 'select'>
-			  <#if field.queryDict??>
-			  <fast-select v-model="state.queryForm.${field.attrName}" dict-type="${field.queryDict}" placeholder="${field.fieldComment!}" clearable></fast-select>
+			  <#if field.formDict??>
+			  <fast-select v-model="state.queryForm.${field.attrName}" dict-type="${field.formDict}" placeholder="${field.fieldComment!}" clearable></fast-select>
 			  <#else>
 			  <el-select v-model="state.queryForm.${field.attrName}" placeholder="${field.fieldComment!}">
 				<el-option label="选择" value="0"></el-option>
 			  </el-select>
 			  </#if>
 			<#elseif field.queryFormType == 'radio'>
-			  <#if field.queryDict??>
-			  <fast-radio-group v-model="state.queryForm.${field.attrName}" dict-type="${field.queryDict}"></fast-radio-group>
+			  <#if field.formDict??>
+			  <fast-radio-group v-model="state.queryForm.${field.attrName}" dict-type="${field.formDict}"></fast-radio-group>
 			  <#else>
 			  <el-radio-group v-model="state.queryForm.${field.attrName}">
 				<el-radio :label="0">单选</el-radio>
