@@ -3,7 +3,8 @@
 - maku-generator是一款低代码生成器，可根据自定义模板内容，快速生成代码，可实现项目的快速开发、上线，减少重复的代码编写，开发人员只需专注业务逻辑即可。
 - 开发文档：https://maku.net/docs/maku-generator
 - 演示环境：https://demo.maku.net/maku-generator
-
+- 官网地址：https://maku.net
+- 
 ## 项目特点
 
 - 友好的代码结构及注释，便于阅读及二次开发
@@ -46,17 +47,20 @@
 </dependency>
 ```
 
-## 交流和反馈
-
-- 官网地址：https://maku.net
-- Gitee仓库：https://gitee.com/makunet/maku-generator
-- Github仓库：https://github.com/makunet/maku-generator
 
 ## 微信交流群
 
 为了更好的交流，我们新提供了微信交流群，需扫描下面的二维码，关注公众号，回复【加群】，根据提示信息，作者会拉你进群的，感谢配合！
 
 ![输入图片说明](images/qrcode.png)
+
+
+## 开源汇总
+- 低代码开发平台（单体版）：https://gitee.com/makunet/maku-admin
+- 低代码开发平台（微服务）：https://gitee.com/makunet/maku-cloud
+- 超好用的代码生成器：https://gitee.com/makunet/maku-generator
+- Vue3.x 后台管理UI：https://gitee.com/makunet/maku-admin
+- Vue3.x 表单设计器：https://gitee.com/makunet/maku-form-design
 
 ## 支持
 
