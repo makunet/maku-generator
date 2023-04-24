@@ -3,6 +3,7 @@ package net.maku.generator.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import net.maku.generator.common.annotation.EncryptParameter;
 
 import java.util.Date;
 
@@ -39,6 +40,7 @@ public class DataSourceEntity {
     /**
      * 密码
      */
+    @EncryptParameter
     private String password;
     /**
      * 创建时间
