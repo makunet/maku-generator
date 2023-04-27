@@ -21,7 +21,7 @@
         <el-input v-model="dataForm.username" placeholder="用户名"></el-input>
       </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input v-model="dataForm.password" placeholder="密码"></el-input>
+        <el-input v-model="dataForm.password" autocomplete="off" type="password" placeholder="密码"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -35,6 +35,7 @@
 import {reactive, ref} from 'vue'
 import {ElMessage} from 'element-plus/es'
 import {useDataSourceApi, useDataSourceSubmitApi} from '@/api/datasource'
+import { decrypt, encrypt } from '../../utils/tool'
 
 const emit = defineEmits(['refreshDataList'])
 
@@ -67,6 +68,7 @@ const init = (id?: number) => {
 
 const getDataSource = (id: number) => {
   useDataSourceApi(id).then(res => {
+    res.data.password = decrypt(res.data.password)
     Object.assign(dataForm, res.data)
   })
 }
@@ -86,7 +88,7 @@ const submitHandle = () => {
       return false
     }
 
-    useDataSourceSubmitApi(dataForm).then(() => {
+    useDataSourceSubmitApi({ ...dataForm, password: encrypt(dataForm.password) }).then(() => {
       ElMessage.success({
         message: '操作成功',
         duration: 500,
