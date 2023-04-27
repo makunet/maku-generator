@@ -29,7 +29,11 @@
 			<el-table-column prop="dbType" label="数据库类型" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="connUrl" label="数据库URL" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="username" label="用户名" header-align="center" align="center"></el-table-column>
-			<el-table-column prop="password" label="密码" header-align="center" align="center"></el-table-column>
+			<el-table-column label="密码" header-align="center" align="center">
+				<template #default="scope">
+					<span>{{ formatPassword(scope.row.password) }}</span>
+				</template>
+			</el-table-column>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="170">
 				<template #default="scope">
 					<el-button type="primary" link @click="datasourceHandle(scope.row.id)">测试</el-button>
@@ -61,6 +65,7 @@ import { useDataSourceTestApi } from '@/api/datasource'
 import { useCrud } from '@/hooks'
 import { ElMessage } from 'element-plus'
 import AddOrUpdate from './add-or-update.vue'
+import { decrypt } from '@/utils/tool'
 
 const state: IHooksOptions = reactive({
 	dataListUrl: '/gen/datasource/page',
@@ -83,4 +88,8 @@ const addOrUpdateHandle = (id?: number) => {
 }
 
 const { getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle, deleteBatchHandle } = useCrud(state)
+
+const formatPassword = (str: string): string => {
+	return Array(decrypt(str).length).fill('•').join('')
+}
 </script>
