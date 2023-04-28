@@ -42,9 +42,9 @@
 		>
 		</el-pagination>
 
-		<import ref="importRef" @refreshDataList="getDataList"></import>
-		<edit ref="editRef" @refreshDataList="getDataList"></edit>
-		<generator ref="generatorRef" @refreshDataList="getDataList"></generator>
+		<import ref="importRef" @refresh-data-list="getDataList"></import>
+		<edit ref="editRef" @refresh-data-list="getDataList"></edit>
+		<generator ref="generatorRef" @refresh-data-list="getDataList"></generator>
 	</el-card>
 </template>
 

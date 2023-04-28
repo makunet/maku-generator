@@ -43,7 +43,7 @@
 		</el-pagination>
 
 		<!-- 弹窗, 新增 / 修改 -->
-		<add-or-update ref="addOrUpdateRef" @refreshDataList="getDataList"></add-or-update>
+		<add-or-update ref="addOrUpdateRef" @refresh-data-list="getDataList"></add-or-update>
 	</el-card>
 </template>
 
