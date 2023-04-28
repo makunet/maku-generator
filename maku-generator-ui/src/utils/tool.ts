@@ -33,10 +33,10 @@ export const decrypt = (ciphertext: string): string => {
 
 export const encrypt = (plaintext: string): string => {
 	// 将明文转换为要加密的格式
-	var message = enc.Utf8.parse(plaintext)
+	const message = enc.Utf8.parse(plaintext)
 
 	// 使用密钥加密明文
-	var encrypted = AES.encrypt(message, enc.Utf8.parse(ENCRYPT_KEY), {
+	const encrypted = AES.encrypt(message, enc.Utf8.parse(ENCRYPT_KEY), {
 		mode: mode.ECB,
 		padding: pad.Pkcs7
 	})
