@@ -3,7 +3,7 @@
 		<el-form :inline="true" :model="state.queryForm" @keyup.enter="getDataList()">
 		<#list queryList as field>
 			<el-form-item>
-			<#if field.formType == 'text' || field.formType == 'textarea' || field.formType == 'editor'>
+			<#if field.queryFormType == 'text' || field.queryFormType == 'textarea' || field.queryFormType == 'editor'>
 			  <el-input v-model="state.queryForm.${field.attrName}" placeholder="${field.fieldComment!}"></el-input>
 			<#elseif field.queryFormType == 'select'>
 			  <#if field.formDict??>
@@ -23,15 +23,15 @@
 			  </#if>
 			<#elseif field.queryFormType == 'date'>
 			  <el-date-picker
-				v-model="daterange"
+				v-model="state.queryForm.${field.attrName}"
 				type="daterange"
-				value-format="yyyy-MM-dd">
+				value-format="YYYY-MM-DD">
 			  </el-date-picker>
 			<#elseif field.queryFormType == 'datetime'>
 			  <el-date-picker
-				v-model="datetimerange"
+				v-model="state.queryForm.${field.attrName}"
 				type="datetimerange"
-				value-format="yyyy-MM-dd HH:mm:ss">
+				value-format="YYYY-MM-DD HH:mm:ss">
 			  </el-date-picker>
 			<#else>
 			  <el-input v-model="state.queryForm.${field.attrName}" placeholder="${field.fieldComment!}"></el-input>
@@ -91,15 +91,7 @@ const state: IHooksOptions = reactive({
 	deleteUrl: '/${moduleName}/${functionName}',
 	queryForm: {
 		<#list queryList as field>
-		<#if field.formType == 'date'>
-		startDate: '',
-		endDate: ''<#sep>, </#sep>
-		<#elseif field.formType == 'datetime'>
-		startDateTime: '',
-		endDateTime: ''<#sep>, </#sep>
-		<#else>
 		${field.attrName}: ''<#sep>, </#sep>
-		</#if>
 		</#list>
 	}
 })
