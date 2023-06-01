@@ -1,6 +1,6 @@
 package net.maku.generator.service.impl;
 
-import cn.hutool.core.text.NamingCase;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import lombok.AllArgsConstructor;
 import net.maku.generator.common.service.impl.BaseServiceImpl;
 import net.maku.generator.dao.TableFieldDao;
@@ -50,7 +50,7 @@ public class TableFieldServiceImpl extends BaseServiceImpl<TableFieldDao, TableF
         Map<String, FieldTypeEntity> fieldTypeMap = fieldTypeService.getMap();
         int index = 0;
         for (TableFieldEntity field : tableFieldList) {
-            field.setAttrName(NamingCase.toCamelCase(field.getFieldName()));
+            field.setAttrName(StringUtils.underlineToCamel(field.getFieldName()));
             // 获取字段对应的类型
             FieldTypeEntity fieldTypeMapping = fieldTypeMap.get(field.getFieldType().toLowerCase());
             if (fieldTypeMapping == null) {
