@@ -137,18 +137,13 @@ public class GenUtils {
     }
 
     /**
-     * 获取功能名
+     * 获取功能名，默认使用表名作为功能名
      *
      * @param tableName 表名
      * @return 功能名
      */
     public static String getFunctionName(String tableName) {
-        String functionName = StrUtil.subAfter(tableName, "_", true);
-        if (StrUtil.isBlank(functionName)) {
-            functionName = tableName;
-        }
-
-        return functionName;
+        return tableName;
     }
 
     /**
