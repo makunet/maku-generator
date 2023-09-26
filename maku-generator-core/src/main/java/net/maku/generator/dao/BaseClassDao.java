@@ -1,5 +1,6 @@
 package net.maku.generator.dao;
 
+import com.baomidou.mybatisplus.annotation.InterceptorIgnore;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import net.maku.generator.entity.BaseClassEntity;
 import org.apache.ibatis.annotations.Mapper;
@@ -11,6 +12,7 @@ import org.apache.ibatis.annotations.Mapper;
  * <a href="https://maku.net">MAKU</a>
  */
 @Mapper
+@InterceptorIgnore(tenantLine = "true")
 public interface BaseClassDao extends BaseMapper<BaseClassEntity> {
 
 }
