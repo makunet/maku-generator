@@ -44,7 +44,7 @@
 <dependency>
     <groupId>net.maku</groupId>
     <artifactId>maku-generator-boot-starter</artifactId>
-    <version>3.0.2</version>
+    <version>3.0.3</version>
 </dependency>
 ```
 
