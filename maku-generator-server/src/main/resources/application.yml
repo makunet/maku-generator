@@ -30,7 +30,11 @@ spring:
 #    url: jdbc:dm://localhost:5236/maku_generator?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
 #    username: maku_generator
 #    password: 12345678
-
+    # 人大金仓
+#    driver-class-name: com.kingbase8.Driver
+#    url: jdbc:kingbase8://localhost:54321/maku_generator?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+#    username: system
+#    password: 123456
 
 # 需要指定对应的模板
 generator:
