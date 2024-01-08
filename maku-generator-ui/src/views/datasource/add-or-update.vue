@@ -11,6 +11,7 @@
 					<el-option value="PostgreSQL" label="PostgreSQL"></el-option>
 					<el-option value="SQLServer" label="SQLServer"></el-option>
 					<el-option value="DM" label="达梦8"></el-option>
+					<el-option value="KingBase" label="人大金仓"></el-option>
 					<el-option value="Clickhouse" label="Clickhouse"></el-option>
 				</el-select>
 			</el-form-item>

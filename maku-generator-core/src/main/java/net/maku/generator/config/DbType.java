@@ -14,7 +14,8 @@ public enum DbType {
     PostgreSQL("org.postgresql.Driver"),
     SQLServer("com.microsoft.sqlserver.jdbc.SQLServerDriver"),
     DM("dm.jdbc.driver.DmDriver"),
-    Clickhouse("com.clickhouse.jdbc.ClickHouseDriver");
+    Clickhouse("com.clickhouse.jdbc.ClickHouseDriver"),
+    KingBase("com.mysql.cj.jdbc.Driver");
 
     private final String driverClass;
 
@@ -49,6 +50,10 @@ public enum DbType {
 
         if (StrUtil.equalsAny(dbType, "Clickhouse")) {
             return Clickhouse;
+        }
+
+        if (StrUtil.equalsAny(dbType, "KingBase")) {
+            return KingBase;
         }
 
         return null;
