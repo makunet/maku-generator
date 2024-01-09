@@ -89,6 +89,8 @@ public class GenDataSource {
             this.dbQuery = new DmQuery();
         } else if (dbType == DbType.Clickhouse) {
             this.dbQuery = new ClickHouseQuery();
+        }else if (dbType == DbType.KingBase) {
+            this.dbQuery = new KingBaseSqlQuery();
         }
 
         this.connection = connection;
