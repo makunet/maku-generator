@@ -15,7 +15,7 @@ public enum DbType {
     SQLServer("com.microsoft.sqlserver.jdbc.SQLServerDriver"),
     DM("dm.jdbc.driver.DmDriver"),
     Clickhouse("com.clickhouse.jdbc.ClickHouseDriver"),
-    KingBase("com.mysql.cj.jdbc.Driver");
+    KingBase("com.kingbase8.Driver");
 
     private final String driverClass;
 
