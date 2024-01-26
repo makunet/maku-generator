@@ -16,12 +16,14 @@ import net.maku.generator.entity.TableEntity;
 import net.maku.generator.entity.TableFieldEntity;
 import net.maku.generator.service.*;
 import net.maku.generator.utils.TemplateUtils;
+import net.maku.generator.vo.PreviewVO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -209,4 +211,23 @@ public class GeneratorServiceImpl implements GeneratorService {
         dataModel.put("queryList", queryList);
     }
 
+    /**
+     * 代码预览
+     *
+     * @param tableId 表ID
+     * @return 预览内容
+     */
+    @Override
+    public List<PreviewVO> preview(Long tableId) {
+        Map<String, Object> dataModel = getDataModel(tableId);
+        // 代码生成器信息
+        GeneratorInfo generator = generatorConfig.getGeneratorConfig();
+        return generator.getTemplates().stream().map(t -> {
+            dataModel.put("templateName", t.getTemplateName());
+            String content = TemplateUtils.getContent(t.getTemplateContent(), dataModel);
+            String fileName = t.getGeneratorPath().substring(t.getGeneratorPath().lastIndexOf("/") + 1);
+            fileName = TemplateUtils.getContent(fileName, dataModel);
+            return new PreviewVO(fileName, content);
+        }).collect(Collectors.toList());
+    }
 }

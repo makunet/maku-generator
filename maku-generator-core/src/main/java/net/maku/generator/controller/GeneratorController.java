@@ -1,15 +1,15 @@
 package net.maku.generator.controller;
 
 import cn.hutool.core.io.IoUtil;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import net.maku.generator.common.utils.Result;
 import net.maku.generator.service.GeneratorService;
-import org.springframework.stereotype.Controller;
+import net.maku.generator.vo.PreviewVO;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -18,7 +18,7 @@ import java.util.zip.ZipOutputStream;
  * @author 阿沐 babamu@126.com
  * <a href="https://maku.net">MAKU</a>
  */
-@Controller
+@RestController
 @RequestMapping("maku-generator/gen/generator")
 @AllArgsConstructor
 public class GeneratorController {
@@ -63,5 +63,12 @@ public class GeneratorController {
 
         return Result.ok();
     }
-
+    /**
+     * 预览代码
+     */
+    @GetMapping("/preview")
+    public Result<List<PreviewVO>> preview(@RequestParam Long tableId) throws Exception {
+        List<PreviewVO> results = generatorService.preview(tableId);
+        return Result.ok(results);
+    }
 }
