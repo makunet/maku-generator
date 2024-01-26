@@ -64,9 +64,8 @@
             <artifactId>DmJdbcDriver18</artifactId>
             <version>${dameng.version}</version>
         </dependency>
-        <!-- kingbase8 -->
         <dependency>
-            <groupId>com.kingbase8</groupId>
+            <groupId>cn.com.kingbase</groupId>
             <artifactId>kingbase8</artifactId>
             <version>${kingbase8.version}</version>
         </dependency>
