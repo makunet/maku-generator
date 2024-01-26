@@ -8,14 +8,17 @@
     "lint": "eslint --fix --ext .vue,.jsx,.ts,.tsx ."
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.1",
     "@element-plus/icons-vue": "2.0.6",
     "@vueuse/core": "9.1.1",
     "axios": "0.27.2",
+    "codemirror": "^6.0.1",
     "crypto-js": "^4.1.1",
     "element-plus": "2.3.4",
     "qs": "6.10.3",
     "sortablejs": "^1.15.0",
     "vue": "3.2.39",
+    "vue-codemirror": "^6.1.1",
     "vue-router": "4.1.5",
     "vxe-table": "^4.3.5",
     "xe-utils": "^3.5.4"

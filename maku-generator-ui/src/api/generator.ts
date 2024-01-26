@@ -9,3 +9,8 @@ export const useDownloadApi = (tableIds: any[]) => {
 export const useGeneratorApi = (tableIds: any[]) => {
 	return service.post('/gen/generator/code', tableIds)
 }
+
+//代码预览
+export const usePreviewApi = (tableId: any) => {
+	return service.get('/gen/generator/preview?tableId=' + tableId)
+}

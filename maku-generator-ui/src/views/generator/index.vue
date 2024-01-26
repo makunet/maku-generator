@@ -22,9 +22,10 @@
 			<el-table-column prop="tableName" label="表名" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="tableComment" label="表说明" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="className" label="类名" header-align="center" align="center"></el-table-column>
-			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="250">
+			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="300">
 				<template #default="scope">
 					<el-button type="primary" link @click="editHandle(scope.row.id)">编辑</el-button>
+					<el-button type="primary" link @click="previewHandle(scope.row.id)">预览</el-button>
 					<el-button type="primary" link @click="generatorHandle(scope.row.id)">生成代码</el-button>
 					<el-button type="primary" link @click="deleteBatchHandle(scope.row.id)">删除</el-button>
 					<el-button type="primary" link @click="syncHandle(scope.row)">同步</el-button>
@@ -43,6 +44,7 @@
 		</el-pagination>
 
 		<import ref="importRef" @refresh-data-list="getDataList"></import>
+		<preview ref="previewRef" @refresh-data-list="getDataList"></preview>
 		<edit ref="editRef" @refresh-data-list="getDataList"></edit>
 		<generator ref="generatorRef" @refresh-data-list="getDataList"></generator>
 	</el-card>
@@ -54,6 +56,7 @@ import { IHooksOptions } from '@/hooks/interface'
 import { useCrud } from '@/hooks'
 import Import from './import.vue'
 import Edit from './edit.vue'
+import Preview from './preview.vue'
 import Generator from './generator.vue'
 import { useTableSyncApi } from '@/api/table'
 import { ElMessage, ElMessageBox } from 'element-plus'
@@ -69,6 +72,7 @@ const state: IHooksOptions = reactive({
 
 const importRef = ref()
 const editRef = ref()
+const previewRef = ref()
 const generatorRef = ref()
 
 const importHandle = (id?: number) => {
@@ -78,7 +82,9 @@ const importHandle = (id?: number) => {
 const editHandle = (id?: number) => {
 	editRef.value.init(id)
 }
-
+const previewHandle = (tableId?: number) => {
+	previewRef.value.init(tableId)
+}
 const generatorHandle = (id?: number) => {
 	generatorRef.value.init(id)
 }
