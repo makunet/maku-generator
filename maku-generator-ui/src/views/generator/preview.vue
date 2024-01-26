@@ -3,7 +3,7 @@
 	<el-dialog v-model="preview.open" draggable :close-on-click-modal="false" :title="preview.title" append-to-body>
 		<el-tabs v-model="preview.activeName">
 			<el-tab-pane v-for="(item, key) in preview.data" :key="key" :label="item.fileName" :name="key">
-				<code-m v-model="item.content" height="610"></code-m>
+				<code-mirror v-model="item.content" :height="610"></code-mirror>
 			</el-tab-pane>
 		</el-tabs>
 	</el-dialog>
@@ -13,7 +13,7 @@
 import { reactive, ref } from 'vue'
 import { ElLoading } from 'element-plus'
 import { usePreviewApi } from '@/api/generator'
-import CodeM from '@/components/codemirror/CodeMirror.vue'
+import CodeMirror from '@/components/codemirror/CodeMirror.vue'
 
 const preview = reactive({
 	open: false,
