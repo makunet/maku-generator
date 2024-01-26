@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import net.maku.generator.config.DbType;
 
 /**
- * PostgreSql查询
+ * KingBase 查询
  *
  * @author 阿沐 babamu@126.com
  * <a href="https://maku.net">MAKU</a>
