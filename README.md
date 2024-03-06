@@ -11,7 +11,7 @@
 - 友好的代码结构及注释，便于阅读及二次开发
 - 支持spring boot starter，能很方便集成到第三方项目
 - 支持通过配置数据源，快速生成CRUD代码，减少重复工作
-- 支持MySQL、Oracle、SQLServer、PostgreSQL、达梦8等主流的数据库
+- 支持MySQL、Oracle、SQLServer、PostgreSQL、达梦8、人大金仓等主流的数据库
 - 支持第三方Java项目包名修改，修改包名变得简单快速
 - 支持批量导入表、批量生成代码以及同步表结构等功能
 
