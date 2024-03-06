@@ -1,0 +1,1 @@
+import{d as o,L as s,Q as n,q as c}from"./index-8dd9830b.js";const d=o({created(){const{params:e,query:r}=s(),{path:t}=e;n().replace({path:"/"+t,query:r}).catch(a=>{console.warn(a)})},render(){return c("div")}});export{d as default};
