@@ -1,12 +1,12 @@
 <template>
 	<!-- 预览界面 -->
-	<el-dialog v-model="preview.open" draggable :close-on-click-modal="false" :title="preview.title" append-to-body>
-		<el-tabs v-model="preview.activeName">
+	<el-drawer v-model="preview.visible" title="编辑" :size="1200" :with-header="false">
+		<el-tabs v-model="preview.activeName" tab-position="left">
 			<el-tab-pane v-for="(item, key) in preview.data" :key="key" :label="item.fileName" :name="key">
-				<code-mirror v-model="item.content" :height="610"></code-mirror>
+				<code-mirror v-model="item.content" :height="680"></code-mirror>
 			</el-tab-pane>
 		</el-tabs>
-	</el-dialog>
+	</el-drawer>
 </template>
 
 <script setup lang="ts">
@@ -16,7 +16,7 @@ import { usePreviewApi } from '@/api/generator'
 import CodeMirror from '@/components/codemirror/CodeMirror.vue'
 
 const preview = reactive({
-	open: false,
+	visible: false,
 	title: '代码预览',
 	data: {},
 	activeName: ref(0)
@@ -27,7 +27,7 @@ const init = async (tableId?: number) => {
 		let resData = await usePreviewApi(tableId)
 		preview.activeName = 0
 		preview.data = resData.data
-		preview.open = true
+		preview.visible = true
 	} finally {
 		loadingInstance.close()
 	}
