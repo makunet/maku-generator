@@ -17,7 +17,7 @@
         <mybatisplus.version>3.5.5</mybatisplus.version>
         <mybatis.spring.version>3.0.3</mybatis.spring.version>
         <hutool.version>5.8.25</hutool.version>
-        <oracle.version>11.2.0.3</oracle.version>
+        <oracle.version>19.3.0.0</oracle.version>
         <freemarker.version>2.3.31</freemarker.version>
         <dameng.version>8.1.2.141</dameng.version>
         <clickhouse.version>0.3.2</clickhouse.version>
@@ -61,8 +61,8 @@
             <artifactId>postgresql</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
             <version>${oracle.version}</version>
         </dependency>
         <dependency>
@@ -94,5 +94,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+
     </dependencies>
 </project>
