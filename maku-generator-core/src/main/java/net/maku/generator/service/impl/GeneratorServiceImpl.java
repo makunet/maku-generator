@@ -61,7 +61,8 @@ public class GeneratorServiceImpl implements GeneratorService {
 
             try {
                 // 添加到zip
-                zip.putNextEntry(new ZipEntry(path));
+                String zipFilePath = path.startsWith("/") ? path.replaceFirst("/", "") : path;
+                zip.putNextEntry(new ZipEntry(zipFilePath));
                 IoUtil.writeUtf8(zip, false, content);
                 zip.flush();
                 zip.closeEntry();
